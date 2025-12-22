@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+
+/* ==================== navbar ======================= */
+
+
+:root {
+  --hue-main: 215; /* ocean blue */
+}
+
+/* Slow, luxury hue shift */
+@keyframes hueFlow {
+  0%   { --hue-main: 215; }
+  50%  { --hue-main: 245; }
+  100% { --hue-main: 215; }
+}
+
+.hue-system {
+  animation: hueFlow 22s ease-in-out infinite;
+}
+
+/* Tokens */
+.hue-text {
+  color: hsl(var(--hue-main), 90%, 60%);
+}
+
+.hue-border {
+  border-color: hsla(var(--hue-main), 90%, 60%, 0.25);
+}
+
+.hue-cta {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--hue-main), 90%, 60%),
+    hsl(calc(var(--hue-main) + 35), 90%, 65%)
+  );
+}
