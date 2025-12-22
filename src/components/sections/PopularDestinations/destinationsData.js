@@ -53,5 +53,76 @@ export const destinations = [
   image: "https://images.unsplash.com/photo-1549692520-acc6669e2f0c",
   trips: 110,
 },
-
+  {
+    id: 1,
+    name: "Paris",
+    country: "France",
+    region: "Europe",
+    image:
+      "https://images.unsplash.com/photo-1502602898657-3e91760cbb34",
+    rating: 4.8,
+    price: "₹1,20,000",
+    duration: "5 Nights / 6 Days",
+    tag: "Romantic",
+  },
+  {
+    id: 2,
+    name: "Bali",
+    country: "Indonesia",
+    region: "Asia",
+    image:
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+    rating: 4.7,
+    price: "₹75,000",
+    duration: "6 Nights / 7 Days",
+    tag: "Adventure",
+  },
+  {
+    id: 3,
+    name: "Dubai",
+    country: "UAE",
+    region: "Middle East",
+    image:
+      "https://images.unsplash.com/photo-1498496294664-d9372eb521f3",
+    rating: 4.6,
+    price: "₹90,000",
+    duration: "4 Nights / 5 Days",
+    tag: "Luxury",
+  },
+  {
+    id: 4,
+    name: "Maldives",
+    country: "Maldives",
+    region: "Asia",
+    image:
+      "https://images.unsplash.com/photo-1500375592092-40eb2168fd21",
+    rating: 4.9,
+    price: "₹1,50,000",
+    duration: "5 Nights / 6 Days",
+    tag: "Honeymoon",
+  },
+  {
+    id: 5,
+    name: "Rome",
+    country: "Italy",
+    region: "Europe",
+    image:
+      "https://images.unsplash.com/photo-1526481280690-7ead6f2f8c2e",
+    rating: 4.5,
+    price: "₹1,10,000",
+    duration: "6 Nights / 7 Days",
+    tag: "Historical",
+  },
+  {
+    id: 6,
+    name: "Tokyo",
+    country: "Japan",
+    region: "Asia",
+    image:
+      "https://images.unsplash.com/photo-1549693578-d683be217e58",
+    rating: 4.8,
+    price: "₹1,30,000",
+    duration: "7 Nights / 8 Days",
+    tag: "Cultural",
+  },
 ];

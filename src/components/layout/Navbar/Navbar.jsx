@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 z-50 hue-system">
       <div className="backdrop-blur-xl bg-black/50 border-b hue-border">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 py-9 flex items-center justify-between">
           <NavBrand />
           <NavPrimary />
           <NavActions />
