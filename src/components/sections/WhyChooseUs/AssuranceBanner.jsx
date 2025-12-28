@@ -1,17 +1,19 @@
 const AssuranceBanner = () => {
   return (
-    <div className="bg-linear-to-r from-indigo-600 to-purple-600 text-white rounded-3xl p-10 shadow-2xl flex flex-col md:flex-row justify-between items-center gap-6">
-      <div>
-        <h3 className="text-3xl font-bold mb-2">
-          Safe • Secure • Trusted
-        </h3>
-        <p className="opacity-90">
-          Verified partners, secure payments, and 100% transparent policies.
-        </p>
-      </div>
-      <button className="btn btn-secondary btn-lg">
-        Learn More 🔒
-      </button>
+    <div
+      className="
+        mt-16
+        max-w-4xl mx-auto
+        bg-white/5 backdrop-blur-lg
+        border border-white/10
+        rounded-2xl
+        px-8 py-6
+        text-center
+        text-gray-300
+      "
+    >
+      Trusted by thousands of travelers worldwide for safe,
+      reliable, and memorable journeys.
     </div>
   );
 };

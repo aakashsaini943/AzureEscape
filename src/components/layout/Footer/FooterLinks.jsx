@@ -1,15 +1,17 @@
 const FooterLinks = ({ title, links }) => {
   return (
     <div>
-      <h3 className="text-lg font-semibold text-white mb-4">
+      {/* Heading */}
+      <h4 className="text-white font-semibold mb-4 pb-2 border-b border-white/10 sm:border-none">
         {title}
-      </h3>
+      </h4>
 
-      <ul className="space-y-3">
-        {links.map((link) => (
+      {/* Links */}
+      <ul className="flex flex-wrap gap-y-2 text-sm text-gray-400 sm:flex-col">
+        {links.map((link, index) => (
           <li
-            key={link}
-            className="hover:text-white cursor-pointer transition"
+            key={index}
+            className="w-1/2 sm:w-full hover:text-white transition"
           >
             {link}
           </li>

@@ -1,20 +1,33 @@
 const stats = [
-  { value: "4.9/5", label: "Average Rating" },
-  { value: "20K+", label: "Verified Reviews" },
-  { value: "98%", label: "Customer Satisfaction" },
+  { label: "Average Rating", value: "4.8/5" },
+  { label: "Verified Reviews", value: "2k+" },
+  { label: "Happy Travelers", value: "10k+" },
 ];
 
 const ReviewStats = () => {
   return (
-    <div className="grid md:grid-cols-3 gap-8 text-center py-14">
-      {stats.map((s, i) => (
-        <div key={i}>
-          <h3 className="text-4xl font-extrabold text-primary">
-            {s.value}
-          </h3>
-          <p className="opacity-70">{s.label}</p>
-        </div>
-      ))}
+    <div className="mt-16">
+      <div className="max-w-5xl mx-auto grid gap-6 sm:grid-cols-3">
+        {stats.map((stat) => (
+          <div
+            key={stat.label}
+            className="
+              bg-white/5 backdrop-blur
+              border border-white/10
+              rounded-xl
+              py-6
+              text-center
+            "
+          >
+            <div className="text-2xl font-bold text-sky-400">
+              {stat.value}
+            </div>
+            <div className="mt-2 text-sm text-gray-400">
+              {stat.label}
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

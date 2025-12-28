@@ -1,16 +1,15 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const NavBrand = () => {
-  const navigate = useNavigate();
-
   return (
-    <div
-      onClick={() => navigate("/")}
-      className="text-2xl font-extrabold tracking-wide cursor-pointer"
-    >
-      <span className="text-white xl">Azure</span>
-      <span className="hue-text xl">Escape</span>
-    </div>
+    <Link to="/" className="flex flex-col leading-tight">
+      <span className="text-2xl font-bold text-white">
+        Azure<span className="text-sky-400">Escape</span>
+      </span>
+      <span className="text-xs text-gray-400">
+        Discover • Plan • Explore
+      </span>
+    </Link>
   );
 };
 

@@ -1,53 +1,54 @@
 import { useState } from "react";
-import { destinations } from "./destinationsData";
 import DestinationCard from "./DestinationCard";
-import DestinationSearch from "./DestinationSearch";
 import DestinationFilters from "./DestinationFilters";
+import DestinationSearch from "./DestinationSearch";
+import { destinations } from "./destinationsData";
 
 const PopularDestinations = () => {
-  const [query, setQuery] = useState("");
   const [region, setRegion] = useState("All");
+  const [query, setQuery] = useState("");
 
   const filteredDestinations = destinations.filter((d) => {
+    const matchesRegion =
+      region === "All" || d.region === region;
+
     const matchesQuery = d.name
       .toLowerCase()
       .includes(query.toLowerCase());
 
-    const matchesRegion =
-      region === "All" || d.region === region;
-
-    return matchesQuery && matchesRegion;
+    return matchesRegion && matchesQuery;
   });
 
   return (
-    
+    <section className="py-28 px-6">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="text-center max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold">
+            Popular{" "}
+            <span className="text-sky-400">Destinations</span>
+          </h2>
 
-    <section className="py-28 bg-linear-to-b from-base-100 to-base-200">
-      <h2 className="text-5xl font-extrabold text-center mb-6">
-        🌍 Popular Destinations
-      </h2>
+          <p className="mt-5 text-gray-300 text-lg">
+            Explore some of the world’s most loved travel destinations,
+            curated for unforgettable experiences.
+          </p>
+        </div>
 
-      <p className="text-center max-w-2xl mx-auto opacity-80 mb-14">
-        Explore handpicked destinations loved by thousands of travelers worldwide.
-      </p>
+        {/* Controls */}
+        <div className="mt-12 flex flex-col gap-6">
+          <DestinationSearch query={query} setQuery={setQuery} />
+          <DestinationFilters region={region} setRegion={setRegion} />
+        </div>
 
-      {/* Controls */}
-      <div className="max-w-6xl mx-auto px-6 mb-12 space-y-6">
-        <DestinationSearch setQuery={setQuery} />
-        <DestinationFilters setRegion={setRegion} />
-      </div>
-
-      {/* Grid */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 px-10">
-        {filteredDestinations.map((destination) => (
-          <DestinationCard
-            key={destination.id}
-            destination={destination}
-          />
-        ))}
+        {/* Cards */}
+        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {filteredDestinations.map((d) => (
+            <DestinationCard key={d.id} {...d} />
+          ))}
+        </div>
       </div>
     </section>
- 
   );
 };
 

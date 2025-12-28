@@ -1,26 +1,43 @@
+import { Link } from "react-router-dom";
+
 const PrimaryCTA = () => {
   return (
-    <div className="relative overflow-hidden rounded-3xl bg-linear-to-r from-fuchsia-600 via-pink-600 to-rose-600 text-white shadow-2xl p-12">
-      <div className="absolute inset-0 opacity-20 background: radial-gradient(circle at top, white, transparent 60%);" />
+    <section className="relative py-24 px-6 overflow-hidden">
+      {/* Glow */}
+      <div className="absolute inset-0">
+        <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-sky-500/25 rounded-full blur-3xl" />
+      </div>
 
-      <div className="relative z-10 text-center max-w-3xl mx-auto">
-        <h2 className="text-5xl font-extrabold mb-6">
-          Your Next Adventure Starts Here 🌍
+      <div className="
+        relative z-10 max-w-5xl mx-auto
+        bg-white/10 backdrop-blur-xl
+        border border-white/20
+        rounded-3xl
+        px-8 py-16
+        text-center
+        shadow-2xl
+      ">
+        <h2 className="text-4xl font-bold">
+          Your next journey starts{" "}
+          <span className="text-sky-400">here</span>
         </h2>
-        <p className="text-lg opacity-90 mb-8">
-          Handpicked destinations, best prices, and zero stress planning.
+
+        <p className="mt-6 text-gray-300 max-w-2xl mx-auto text-lg">
+          Explore curated destinations, exclusive travel packages,
+          and seamless booking experiences.
         </p>
 
-        <div className="flex flex-wrap justify-center gap-4">
-          <button className="btn btn-secondary btn-lg shadow-xl">
-            Book a Trip ✈️
-          </button>
-          <button className="btn btn-outline btn-lg text-white">
-            Explore Packages
-          </button>
+        <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+          <Link to="/destinations" className="btn btn-primary px-10">
+            Explore Destinations
+          </Link>
+
+          <Link to="/login" className="btn btn-outline text-white px-10">
+            Get Started
+          </Link>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -1,31 +1,37 @@
 import { useState } from "react";
 import NavBrand from "./NavBrand";
-import NavPrimary from "./NavPrimary";
+import NavLinks from "./NavLinks";
 import NavActions from "./NavActions";
-import NavMobile from "./NavMobile";
+import MobileNav from "./MobileNav";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 hue-system">
-      <div className="backdrop-blur-xl bg-black/50 border-b hue-border">
-        <div className="max-w-7xl mx-auto px-6 py-9 flex items-center justify-between">
+    <>
+      <header
+        className="
+          sticky top-0 z-40
+          bg-black/50 backdrop-blur-xl
+          border-b border-white/10
+        "
+      >
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <NavBrand />
-          <NavPrimary />
+          <NavLinks />
           <NavActions />
 
           <button
             className="lg:hidden text-white text-2xl"
-            onClick={() => setOpen(!open)}
+            onClick={() => setOpen(true)}
           >
             ☰
           </button>
         </div>
-      </div>
+      </header>
 
-      <NavMobile open={open} setOpen={setOpen} />
-    </header>
+      <MobileNav open={open} onClose={() => setOpen(false)} />
+    </>
   );
 };
 

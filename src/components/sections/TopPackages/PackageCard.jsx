@@ -1,33 +1,72 @@
-const PackageCard = ({ pkg }) => {
+const PackageCard = ({
+  title,
+  duration,
+  price,
+  description,
+  image,
+  featured,
+}) => {
   return (
-    <div className="group rounded-3xl overflow-hidden shadow-xl bg-base-100 hover:scale-105 transition duration-500">
-      <div className="relative">
-        <img
-          src={pkg.image}
-          alt={pkg.title}
-          className="h-64 w-full object-cover"
-        />
-        <span className="absolute top-4 left-4 badge badge-secondary">
-          {pkg.badge}
+    <div
+      className={`
+        group relative
+        bg-white/10 backdrop-blur-xl
+        border border-white/20
+        rounded-2xl
+        overflow-hidden
+        shadow-xl
+        transition-all duration-300
+        hover:-translate-y-2 hover:shadow-2xl
+        ${featured ? "ring-2 ring-sky-400/50" : ""}
+      `}
+    >
+      {/* Featured badge */}
+      {featured && (
+        <span className="
+          absolute top-4 left-4 z-10
+          bg-sky-500 text-white
+          text-xs font-semibold
+          px-3 py-1 rounded-full
+        ">
+          Featured
         </span>
+      )}
+
+      {/* Image */}
+      <div className="relative h-48">
+        <img
+          src={image}
+          alt={title}
+          className="
+            w-full h-full object-cover
+            transition-transform duration-500
+            group-hover:scale-110
+          "
+        />
+        <div className="absolute inset-0 bg-black/30" />
       </div>
 
-      <div className="p-6">
-        <h3 className="text-xl font-bold mb-1">{pkg.title}</h3>
-        <p className="text-sm opacity-70">{pkg.location}</p>
+      {/* Content */}
+      <div className="p-6 text-white">
+        <h3 className="text-lg font-semibold">{title}</h3>
 
-        <div className="flex justify-between items-center mt-4">
-          <span className="text-lg font-bold text-primary">
-            ${pkg.price}
-          </span>
-          <span className="text-sm">⭐ {pkg.rating}</span>
+        <div className="mt-2 text-sm text-gray-300">
+          {duration}
         </div>
 
-        <p className="text-sm mt-2 opacity-80">{pkg.duration}</p>
+        <p className="mt-3 text-sm text-gray-300">
+          {description}
+        </p>
 
-        <button className="btn btn-primary w-full mt-4">
-          View Details
-        </button>
+        <div className="mt-4 flex items-center justify-between">
+          <span className="text-sky-400 font-bold text-lg">
+            {price}
+          </span>
+
+          <button className="btn btn-sm btn-primary">
+            Book Now
+          </button>
+        </div>
       </div>
     </div>
   );

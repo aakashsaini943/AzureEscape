@@ -1,31 +1,20 @@
-const PackageSearch = ({ setQuery }) => {
+const PackageSearch = ({ query, setQuery }) => {
   return (
-    <div className="w-full mb-6 ">
-      
-      {/* Search Input */}
-      <div className="relative w-full ">
-        <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
-          🔍
-        </span>
-
-        <input
-          type="text"
-          placeholder="Search packages or destinations"
-          className="
-            w-120 pl-12 pr-4 py-3
-            rounded-xl
-            bg-white
-            border border-gray-300
-            text-gray-700 text-sm
-            placeholder:text-gray-400
-            focus:outline-none
-            focus:ring-2 focus:ring-primary
-            transition-all duration-300
-          "
-          onChange={(e) => setQuery(e.target.value)}
-        />
-      </div>
-
+    <div className="w-full max-w-md mx-auto">
+      <input
+        type="text"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder="Search packages..."
+        className="
+          input input-bordered w-full
+          bg-black/30
+          border-white/20
+          text-white
+          placeholder-gray-400
+          focus:border-sky-400
+        "
+      />
     </div>
   );
 };

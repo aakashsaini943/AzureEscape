@@ -1,24 +1,31 @@
-import RatingStars from "./RatingStars";
-
-const TestimonialCard = ({ testimonial }) => {
+const TestimonialCard = ({ review, name, location }) => {
   return (
-    <div className="bg-white/70 backdrop-blur-lg rounded-3xl p-8 shadow-xl hover:scale-105 transition duration-500">
-      <div className="flex items-center gap-4 mb-4">
-        <img
-          src={testimonial.image}
-          alt={testimonial.name}
-          className="w-14 h-14 rounded-full object-cover"
-        />
-        <div>
-          <h4 className="font-bold">{testimonial.name}</h4>
-          <p className="text-sm opacity-70">{testimonial.location}</p>
-          <RatingStars rating={testimonial.rating} />
+<div
+  style={{
+    minWidth: "320px",
+    maxWidth: "320px",
+    flexShrink: 0,
+  }}
+  className="
+    bg-white/10 backdrop-blur-xl
+    border border-white/20
+    rounded-2xl
+    p-6
+  "
+>
+
+      <p className="text-gray-300 leading-relaxed">
+        “{review}”
+      </p>
+
+      <div className="mt-6 border-t border-white/10 pt-4">
+        <div className="font-semibold text-white">
+          {name}
+        </div>
+        <div className="text-sm text-gray-400">
+          {location}
         </div>
       </div>
-
-      <p className="italic opacity-90">
-        “{testimonial.review}”
-      </p>
     </div>
   );
 };

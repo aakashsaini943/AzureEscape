@@ -1,44 +1,44 @@
-
-const DestinationSearch = ({ setQuery }) => {
+const DestinationCard = ({ name, description, image }) => {
   return (
-    <div className="relative w-full max-w-xl mx-auto">
-      
-      {/* Search Icon (SVG) */}
-      <svg
-        className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
-        width="20"
-        height="20"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        viewBox="0 0 24 24"
-      >
-        <circle cx="11" cy="11" r="8" />
-        <line x1="21" y1="21" x2="16.65" y2="16.65" />
-      </svg>
+    <div
+      className="
+        group
+        bg-white/10 backdrop-blur-xl
+        border border-white/20
+        rounded-2xl
+        overflow-hidden
+        shadow-xl
+        transition-all duration-300
+        hover:-translate-y-2 hover:shadow-2xl
+      "
+    >
+      {/* Image */}
+      <div className="relative h-48 overflow-hidden">
+        <img
+          src={image}
+          alt={name}
+          className="
+            w-full h-full object-cover
+            transition-transform duration-500
+            group-hover:scale-110
+          "
+        />
+        <div className="absolute inset-0 bg-black/30" />
+      </div>
 
-      {/* Input */}
-      <input
-        type="text"
-        placeholder="Search destinations, cities or places"
-        className="
-          w-full
-          pl-12 pr-4 py-3
-          rounded-xl
-          bg-white
-          border border-gray-200
-          text-gray-700
-          placeholder-gray-400
-          shadow-sm
-          focus:outline-none
-          focus:ring-2 focus:ring-blue-500
-          focus:border-blue-500
-          transition-all duration-300
-        "
-        onChange={(e) => setQuery(e.target.value)}
-      />
+      {/* Content */}
+      <div className="p-6 text-white">
+        <h3 className="text-xl font-semibold">{name}</h3>
+        <p className="mt-2 text-sm text-gray-300">
+          {description}
+        </p>
+
+        <button className="btn btn-sm btn-primary mt-4">
+          View Trips
+        </button>
+      </div>
     </div>
   );
 };
 
-export default DestinationSearch;
+export default DestinationCard;
