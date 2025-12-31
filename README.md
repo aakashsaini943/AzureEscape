@@ -12,6 +12,8 @@ Daisy UI --pending
 
 LocalStorage (wishlist)
 
+Lucide-react
+
 
 ========== folder structure ===========
 

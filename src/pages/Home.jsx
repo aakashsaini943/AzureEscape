@@ -1,21 +1,31 @@
 import React from "react";
-import Hero from "../components/sections/Hero";
+import Hero from "../components/sections/hero/Hero";
 import PopularDestinations from "../components/sections/PopularDestinations/PopularDestinations";
 import TopPackages from "../components/sections/TopPackages/TopPackages";
 import WhyChooseUs from "../components/sections/WhyChooseUs/WhyChooseUs";
 import Testimonials from "../components/sections/Testimonials/Testimonials";
 import CTA from "../components/sections/CTA/CTA";
+import SavingsCompareCard from "../components/sections/SavingCard/SavingsCompareCard";
+import FlashSale from "../components/sections/FlashSale/FlashSale";
+import DealCards from "../components/sections/DealsCard/DealCards";
+import FlightPromoBanner from "../components/sections/FlihtDelasBanner/FlightPromoBanner";
+import MiniOffers from "../components/sections/offer/MiniOffers";
 
 
- const Home = () => {
+const Home = () => {
   return (
     <>
-    <Hero />
-    <PopularDestinations/>
-    <TopPackages/>
-    <WhyChooseUs/>
-    <Testimonials/>
-    <CTA/>
+      <Hero />
+      <FlashSale />
+      <MiniOffers/>
+      <SavingsCompareCard />
+      <FlightPromoBanner />
+      <DealCards />
+      <PopularDestinations />
+      <TopPackages />
+      <WhyChooseUs />
+      <Testimonials />
+      <CTA />
     </>
   );
 };

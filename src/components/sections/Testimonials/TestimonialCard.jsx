@@ -11,6 +11,7 @@ const TestimonialCard = ({ review, name, location }) => {
     border border-white/20
     rounded-2xl
     p-6
+
   "
 >
 

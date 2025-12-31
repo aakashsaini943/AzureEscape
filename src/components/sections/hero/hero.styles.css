@@ -1,0 +1,554 @@
+/* HERO */
+.mmt-hero {
+  position: relative;
+  min-height: 100vh;
+  z-index: 2;
+
+  background:
+    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)),
+    url("/images/resort-sunset.jpg") center/cover no-repeat;
+
+}
+
+
+.mmt-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.65),
+    rgba(0,0,0,0.85)
+  );
+}
+
+.mmt-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 160px;
+}
+
+/* TABS */
+.mmt-tabs-wrapper {
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.mmt-tabs-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.mmt-tabs {
+  position: relative;
+  display: inline-flex;
+  gap: 6px;
+  padding: 6px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+}
+
+.mmt-tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s ease, transform 0.15s ease;
+}
+
+.mmt-tab:hover {
+  color: #0284c7;
+  transform: translateY(-1px);
+}
+
+.mmt-tab.active {
+  color: #0284c7;
+}
+
+.tab-icon {
+  font-size: 16px;
+}
+
+.tab-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: #ef4444;
+  color: #fff;
+}
+
+.mmt-tab-indicator {
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  height: calc(100% - 8px);
+  background: linear-gradient(135deg, #0284c7, #0ea5e9);
+  border-radius: 999px;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+
+
+/* SEARCH CARD */
+.mmt-search-card {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 24px 28px 28px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.25);
+}
+
+.mmt-trip-type {
+  display: flex;
+  gap: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #0f172a;
+  margin-bottom: 18px;
+}
+
+.mmt-trip-type input {
+  accent-color: #008cff;
+}
+
+
+.mmt-fields {
+  display: grid;
+  grid-template-columns: 1.2fr 40px 1.2fr 1fr 1fr 1.2fr;
+  align-items: center;
+  gap: 16px;
+}
+
+
+.mmt-fields div {
+  border-right: 1px solid #e5e7eb;
+  padding-right: 12px;
+}
+
+.mmt-fields strong {
+  display: block;
+  font-size: 20px;
+}
+
+.mmt-fields span {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.mmt-fields .field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mmt-fields small {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+
+.swap {
+  font-size: 22px;
+  text-align: center;
+}
+
+.mmt-fields input,
+.mmt-fields select {
+  height: 42px;
+  padding: 8px 12px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f172a;
+
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+
+  outline: none;
+}
+
+.mmt-fields input::placeholder {
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+
+.mmt-fields input:focus,
+.mmt-fields select:focus {
+  border-color: #008cff;
+  box-shadow: 0 0 0 3px rgba(0, 140, 255, 0.15);
+}
+
+.mmt-fields .sub,
+.mmt-fields .muted {
+  font-size: 12px;
+  color: #64748b;
+}
+
+
+/* SEARCH BUTTON */
+.mmt-search-btn {
+  margin: 30px auto 0;
+  display: block;
+  background: #008cff;
+  color: #fff;
+  padding: 14px 60px;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
+}
+
+/* FARES */
+.mmt-fares {
+  margin-top: 18px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+
+}
+
+.mmt-fares span {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.mmt-fares button {
+  padding: 6px 12px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  font-size: 13px;
+}
+
+
+/* ---------------swap button --------------------- */
+
+.swap {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  font-size: 18px;
+  cursor: pointer;
+  color: #0f172a;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swap:hover {
+  background: #e0f2fe;
+  border-color:  #008cff;
+
+}
+
+/* --------------------------search btn-------------------- */
+
+.mmt-search-btn {
+  margin: 26px auto 0;
+  display: block;
+
+  background: linear-gradient(135deg, #008cff, #0066ff);
+  color: #ffffff;
+
+  padding: 14px 64px;
+  border-radius: 32px;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  border: none;
+  cursor: pointer;
+}
+
+.mmt-search-btn:hover {
+  filter: brightness(1.05);
+}
+
+
+
+
+@media (max-width: 768px) {
+  .mmt-tabs {
+    justify-content: flex-start;
+    overflow-x: auto;
+    gap: 20px;
+  }
+
+  .mmt-tab-indicator {
+    display: none; /* cleaner on mobile */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+
+  /* HERO SPACING */
+  .mmt-hero-content {
+    padding-top: 120px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+
+  .hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 -120px 120px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+}
+
+
+  /* TABS */
+  .mmt-tabs {
+    border-radius: 20px;
+    padding: 12px;
+    gap: 16px;
+    justify-content:flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .mmt-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mmt-tab {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  .mmt-tab .icon {
+    font-size: 16px;
+  }
+
+  .mmt-tab-indicator {
+    display: none;
+  }
+
+  /* SEARCH CARD */
+  .mmt-search-card {
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  /* TRIP TYPE */
+  .mmt-trip-type {
+    gap: 16px;
+    font-size: 13px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+
+  /* FIELDS → STACKED LAYOUT */
+  .mmt-fields {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .mmt-fields .field {
+    padding: 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    background: #f8fafc;
+  }
+
+  .mmt-fields small {
+    font-size: 11px;
+  }
+
+  .mmt-fields input,
+  .mmt-fields select {
+    height: 40px;
+    font-size: 14px;
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+
+  .mmt-fields input:focus,
+  .mmt-fields select:focus {
+    box-shadow: none;
+  }
+
+  /* SWAP BUTTON → INLINE */
+  .swap {
+    width: 36px;
+    height: 36px;
+    margin: 0 auto;
+    background: #ffffff;
+  }
+
+  /* SEARCH BUTTON */
+  .mmt-search-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px;
+    font-size: 16px;
+  }
+
+  /* FARES */
+  .mmt-fares {
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .mmt-fares button {
+    font-size: 12px;
+    padding: 6px 10px;
+    
+  }
+}
+
+.fare-section {
+  margin-top: 16px;
+}
+
+.fare-heading {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+.fare-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.fare-card {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 18px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.fare-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14);
+}
+
+.fare-card.active {
+  background: linear-gradient(135deg, #0284c7, #0ea5e9);
+  border-color: transparent;
+  color: #fff;
+}
+
+.fare-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #e0f2fe;
+  color: #0284c7;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+
+.fare-card.active .fare-icon {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+.fare-info {
+  flex: 1;
+}
+
+.fare-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827; /* neutral dark, high contrast */
+}
+
+.fare-subtitle {
+  font-size: 12px;
+  color: #4b5563; /* readable gray */
+}
+
+
+
+.fare-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: transparent;
+  align-self: center;
+}
+
+.fare-card.active {
+  background: linear-gradient(
+    135deg,
+    #0284c7,
+    #0ea5e9
+  );
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 18px 40px rgba(2, 132, 199, 0.45);
+}
+
+
+.fare-card::after {
+  content: "";
+  position: absolute;
+  right: 14px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.fare-card.active::after {
+  background: #ffffff;
+}
+
+
+.fare-card.active .fare-title {
+  color: #ffffff;
+}
+
+.fare-card.active .fare-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+}

@@ -1,9 +1,13 @@
-import React from 'react'
+import { HotelsHero } from "../Hotels/HotelHero";
+import HotelsListing from "../Hotels/listing/HotelsListing";
 
 const Hotels = () => {
   return (
-    <div>Hotels</div>
-  )
-}
+    <>
+      <HotelsHero />
+      <HotelsListing/>
+    </>
+  );
+};
 
-export default Hotels
+export default Hotels;

@@ -1,0 +1,110 @@
+/* ROOT */
+.fp-banner {
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 35px;
+  border-radius: 28px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #020617, #0b2a4a);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.45);
+}
+
+/* MAIN CONTENT */
+.fp-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 36px;
+  min-height: 260px;
+}
+
+/* TEXT */
+.fp-text h2 {
+  font-size: 42px;
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.fp-text p {
+  font-size: 22px;
+  font-weight: 700;
+  color: #c7ddff;
+  margin-bottom: 16px;
+}
+
+/* PILL */
+.fp-pill {
+  display: inline-block;
+  background: #ffffff;
+  color: #020617;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: 999px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* PLANE */
+.fp-plane {
+  width: 46%;
+  max-width: 420px;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));
+}
+
+/* PARTNER STRIP */
+.fp-partners {
+  background: #ffffff;
+  padding: 14px 0;
+  overflow: hidden;
+}
+
+/* TRACK */
+.fp-track {
+  display: flex;
+  gap: 46px;
+  width: max-content;
+  animation: scroll 22s linear infinite;
+}
+
+/* LOGOS */
+.fp-track img {
+  height: 32px;
+  object-fit: contain;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+
+.fp-track img:hover {
+  opacity: 1;
+}
+
+/* ANIMATION */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .fp-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .fp-plane {
+    width: 80%;
+  }
+
+  .fp-text h2 {
+    font-size: 34px;
+  }
+}
