@@ -1,28 +1,32 @@
 const NewsletterCTA = () => {
   return (
-    <section className="relative py-28 px-6 overflow-hidden">
-      {/* Subtle background glow */}
+    <section className="relative py-32 px-6 overflow-hidden bg-gradient-to-b from-white via-slate-50 to-white">
+      {/* Soft background glow */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[420px] h-[420px] bg-sky-500/20 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[520px] h-[520px] bg-sky-200/40 rounded-full blur-3xl" />
       </div>
 
       <div
         className="
           relative z-10 max-w-4xl mx-auto
-          bg-white/10 backdrop-blur-xl
-          border border-white/20
-          rounded-3xl
+          bg-white
+          border border-gray-200
+          rounded-[32px]
           px-10 py-16
           text-center
-          shadow-2xl
+          shadow-[0_30px_80px_rgba(0,0,0,0.08)]
         "
       >
-        <h3 className="text-3xl md:text-4xl font-bold leading-tight">
+        <span className="text-sm font-semibold tracking-wide text-indigo-500 uppercase">
+          Weekly Travel Digest
+        </span>
+
+        <h3 className="mt-4 text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
           Get travel inspiration in your inbox
         </h3>
 
-        <p className="mt-5 text-gray-300 max-w-xl mx-auto text-lg">
-          Hand-picked destinations, exclusive deals, and travel tips —
+        <p className="mt-5 text-gray-600 max-w-xl mx-auto text-lg">
+          Hand-picked destinations, exclusive deals, and smart travel tips —
           delivered once a week.
         </p>
 
@@ -31,20 +35,26 @@ const NewsletterCTA = () => {
             type="email"
             placeholder="you@example.com"
             className="
-              input input-bordered
-              bg-black/30
-              border-white/20
-              text-white
-              placeholder-gray-400
               w-full sm:w-80
-              focus:outline-none focus:border-sky-400
+              rounded-xl
+              border border-gray-300
+              px-4 py-3
+              text-gray-800
+              placeholder-gray-400
+              focus:outline-none focus:ring-2 focus:ring-sky-400
             "
           />
 
           <button
             className="
-              btn btn-primary px-10
-              shadow-lg shadow-sky-500/30
+              px-10 py-3
+              rounded-xl
+              bg-gradient-to-r from-sky-500 to-indigo-500
+              text-white font-semibold
+              transition-all duration-300
+              hover:shadow-lg
+              hover:shadow-sky-500/40
+              active:scale-95
             "
           >
             Subscribe
@@ -52,7 +62,7 @@ const NewsletterCTA = () => {
         </div>
 
         {/* Trust hint */}
-        <p className="mt-6 text-xs text-gray-400">
+        <p className="mt-6 text-xs text-gray-500">
           No spam. Unsubscribe anytime.
         </p>
       </div>

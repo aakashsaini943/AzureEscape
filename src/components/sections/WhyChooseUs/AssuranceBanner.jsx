@@ -2,18 +2,22 @@ const AssuranceBanner = () => {
   return (
     <div
       className="
-        mt-16
+        mt-20
         max-w-4xl mx-auto
-        bg-white/5 backdrop-blur-lg
-        border border-white/10
-        rounded-2xl
-        px-8 py-6
+        rounded-3xl
+        px-10 py-7
         text-center
-        text-gray-300
+        text-gray-600
+        bg-gradient-to-r from-white/70 via-white/60 to-white/70
+        backdrop-blur-xl
+        border border-gray-200/60
+        shadow-sm
       "
     >
-      Trusted by thousands of travelers worldwide for safe,
-      reliable, and memorable journeys.
+      <p className="text-sm md:text-base leading-relaxed">
+        Trusted by thousands of travelers worldwide for safe, reliable,
+        and memorable journeys.
+      </p>
     </div>
   );
 };

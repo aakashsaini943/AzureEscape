@@ -1,28 +1,40 @@
 const stats = [
-  { label: "Average Rating", value: "4.8/5" },
+  { label: "Average Rating", value: "4.8 / 5" },
   { label: "Verified Reviews", value: "2k+" },
   { label: "Happy Travelers", value: "10k+" },
 ];
 
 const ReviewStats = () => {
   return (
-    <div className="mt-16">
-      <div className="max-w-5xl mx-auto grid gap-6 sm:grid-cols-3">
+    <div className="mt-20">
+      <div
+        className="
+          max-w-5xl mx-auto
+          grid gap-8 sm:grid-cols-3
+          rounded-3xl
+          bg-gradient-to-r from-white/80 via-white/70 to-white/80
+          backdrop-blur-xl
+          border border-gray-200
+          shadow-md
+          px-6 py-10
+        "
+      >
         {stats.map((stat) => (
           <div
             key={stat.label}
-            className="
-              bg-white/5 backdrop-blur
-              border border-white/10
-              rounded-xl
-              py-6
-              text-center
-            "
+            className="text-center"
           >
-            <div className="text-2xl font-bold text-sky-400">
+            <div
+              className="
+                text-3xl md:text-4xl font-extrabold
+                bg-gradient-to-r from-sky-400 to-indigo-500
+                bg-clip-text text-transparent
+              "
+            >
               {stat.value}
             </div>
-            <div className="mt-2 text-sm text-gray-400">
+
+            <div className="mt-2 text-sm md:text-base text-gray-600 font-medium">
               {stat.label}
             </div>
           </div>
