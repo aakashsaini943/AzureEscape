@@ -3,7 +3,7 @@ import Hero from "../components/sections/hero/Hero";
 import PopularDestinations from "../components/sections/PopularDestinations/PopularDestinations";
 import TopPackages from "../components/sections/TopPackages/TopPackages";
 import WhyChooseUs from "../components/sections/WhyChooseUs/WhyChooseUs";
-import Testimonials from "../components/sections/Testimonials/Testimonials";
+// import Testimonials from "../components/sections/Testimonials/Testimonials";
 import CTA from "../components/sections/CTA/CTA";
 import SavingsCompareCard from "../components/sections/SavingCard/SavingsCompareCard";
 import FlashSale from "../components/sections/FlashSale/FlashSale";
@@ -24,7 +24,7 @@ const Home = () => {
       <PopularDestinations />
       <TopPackages />
       <WhyChooseUs />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <CTA />
     </>
   );

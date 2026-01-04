@@ -1,50 +1,52 @@
 import "./FlashSale.css";
 
-const OFFERS = [
-  { label: "FLIGHTS", value: "16%", suffix: "Off" },
-  { label: "HOTELS", value: "65%", suffix: "Off" },
-  { label: "BUSES", value: "₹250", suffix: "Off" },
+const DEALS = [
+  { title: "Flights", value: "Up to 16% off", accent: "blue" },
+  { title: "Hotels", value: "Up to 65% off", accent: "purple" },
+  { title: "Buses", value: "₹250 off", accent: "green" },
 ];
-function FlashSale() {
+
+const FlashDeals = () => {
   return (
-    <section className="fs-hero">
-      <div className="fs-glow" />
-      <div className="fs-particles" />
-
-      <div className="fs-container">
+    <section className="fd-section">
+      <div className="fd-container">
         {/* LEFT CONTENT */}
-        <div className="fs-left">
-          <span className="fs-badge">LIMITED TIME</span>
+        <div className="fd-content">
+          <span className="fd-pill">Limited Time Offers</span>
 
-          <h1 className="fs-heading">
-            FLASH <span>SALE</span>
-          </h1>
+          <h2 className="fd-title">
+            Exclusive <span>Flash Deals</span>
+          </h2>
 
-          <p className="fs-subtitle">
-            Grab exclusive travel deals during our power-packed flash sale.
+          <p className="fd-description">
+            Hand-picked travel deals curated for smart travelers.
+            Book faster, save more, and travel better with AzureEscape.
           </p>
 
-          <div className="fs-time">
-            2–3 PM &nbsp;|&nbsp; 8–9 PM &nbsp;|&nbsp; 10 PM–12 AM
+          <div className="fd-time">
+            Live Daily · 2–3 PM · 8–9 PM · 10 PM–12 AM
           </div>
         </div>
 
         {/* RIGHT CARDS */}
-        <div className="fs-cards">
-          {OFFERS.map((item, i) => (
-            <div className="fs-card" key={i}>
-              <div className="fs-card-top">
-                <small>Up to</small>
-                <h2>{item.value}</h2>
-                <small>{item.suffix}</small>
+        <div className="fd-cards">
+          {DEALS.map((deal, index) => (
+            <div key={index} className={`fd-card ${deal.accent}`}>
+              <div className="fd-card-header">
+                <span className="fd-card-title">{deal.title}</span>
               </div>
-              <div className="fs-card-bottom">{item.label}</div>
+
+              <div className="fd-card-value">{deal.value}</div>
+
+              <button className="fd-card-btn">
+                View Deals →
+              </button>
             </div>
           ))}
         </div>
       </div>
     </section>
   );
-}
+};
 
-export default FlashSale
+export default FlashDeals;

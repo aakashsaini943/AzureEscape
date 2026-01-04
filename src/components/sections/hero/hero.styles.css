@@ -552,3 +552,481 @@
 .fare-card.active .fare-subtitle {
   color: rgba(255, 255, 255, 0.9);
 }
+
+/* ==========================FAREOPTIONS.JSX========================== */
+
+/* SECTION */
+.fare-section {
+  margin-top: 24px;
+}
+
+.fare-heading {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #111827;
+}
+
+/* GRID (Mobile First) */
+.fare-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(240px, 1fr);
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scroll-snap-type: x mandatory;
+}
+
+.fare-grid::-webkit-scrollbar {
+  display: none;
+}
+
+/* CARD */
+.fare-card {
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  min-height: 72px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* TAP FEEL */
+.fare-card:active {
+  transform: scale(0.97);
+}
+
+/* ICON */
+.fare-icon {
+  font-size: 20px;
+  color: #0ea5e9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* TEXT */
+.fare-info {
+  flex: 1;
+}
+
+.fare-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.fare-subtitle {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* ACTIVE STATE */
+.fare-card.active {
+  border-color: #0ea5e9;
+  background: linear-gradient(
+    to right,
+    rgba(14,165,233,0.08),
+    rgba(14,165,233,0.02)
+  );
+}
+
+.fare-card.active .fare-title {
+  color: #0284c7;
+}
+
+/* INDICATOR DOT */
+.fare-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 2px solid #d1d5db;
+}
+
+.fare-card.active .fare-indicator {
+  border-color: #0ea5e9;
+  background: #0ea5e9;
+}
+
+/* TABLET */
+@media (min-width: 640px) {
+  .fare-grid {
+    grid-auto-columns: minmax(260px, 1fr);
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+  .fare-grid {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(3, 1fr);
+    overflow: visible;
+  }
+}
+
+
+
+/* ==============================FLIGHTSEARCH.JSX==================== */
+
+
+/* CARD */
+.mmt-search-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* TRIP TYPE */
+.mmt-trip-type {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 14px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.mmt-trip-type label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+/* FIELDS – MOBILE FIRST */
+.mmt-fields {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  position: relative;
+}
+
+/* FIELD */
+.field {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+.field small {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  outline: none;
+}
+
+.sub {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.muted {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+/* DISABLED */
+.field.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* SWAP BUTTON */
+.swap {
+  position: absolute;
+  top: 52px;
+  right: 12px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* SEARCH CTA */
+.mmt-search-btn {
+  margin-top: 16px;
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* TABLET */
+@media (min-width: 768px) {
+  .mmt-fields {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .swap {
+    top: 42%;
+    right: auto;
+    left: 31%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+  .mmt-fields {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .mmt-search-btn {
+    width: auto;
+    padding: 14px 32px;
+    align-self: flex-end;
+  }
+}
+
+
+/* ====================HEROTAB.JSX================= */
+
+/* ===== WRAPPER ===== */
+.mmt-tabs-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  padding: 6px 4px;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbar */
+.mmt-tabs-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+/* ===== TABS CONTAINER ===== */
+.mmt-tabs {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px;
+  width: max-content;
+  min-width: 100%;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 18px;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+}
+
+/* ===== TAB BUTTON ===== */
+.mmt-tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 16px;
+  border-radius: 14px;
+  border: none;
+  background: transparent;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #374151;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    color 0.25s ease,
+    transform 0.15s ease;
+}
+
+/* Touch feedback */
+.mmt-tab:active {
+  transform: scale(0.96);
+}
+
+/* ICON */
+.tab-icon {
+  font-size: 17px;
+  opacity: 0.85;
+}
+
+/* ===== ACTIVE TAB ===== */
+.mmt-tab.active {
+  color: #0284c7;
+}
+
+/* ===== INDICATOR ===== */
+.mmt-tab-indicator {
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    #0ea5e9,
+    #0284c7
+  );
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(14, 165, 233, 0.5);
+  transition:
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== BADGE ===== */
+.tab-badge {
+  margin-left: 6px;
+  padding: 2px 7px;
+  font-size: 10px;
+  font-weight: 700;
+  background: linear-gradient(
+    135deg,
+    #fde68a,
+    #fbbf24
+  );
+  color: #92400e;
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(251, 191, 36, 0.4);
+}
+
+/* ===== TABLET ===== */
+@media (min-width: 768px) {
+  .mmt-tabs-wrapper {
+    overflow: visible;
+  }
+
+  .mmt-tabs {
+    justify-content: center;
+    width: 100%;
+    padding: 8px;
+  }
+
+  .mmt-tab {
+    padding: 12px 18px;
+    font-size: 14px;
+  }
+}
+
+/* ===== DESKTOP ===== */
+@media (min-width: 1024px) {
+  .mmt-tabs {
+    border-radius: 22px;
+  }
+
+  .mmt-tab {
+    padding: 14px 22px;
+    font-size: 14.5px;
+  }
+
+  .tab-icon {
+    font-size: 18px;
+  }
+}
+
+
+/* ============================HERO.JSX=========================== */
+
+
+/* ===== HERO SECTION ===== */
+.mmt-hero {
+  position: relative;
+  min-height: 100vh;
+  padding: 24px 16px 40px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  /* fallback color */
+  background: #020617;
+
+  /* image optional */
+  background-image: url("https://images.unsplash.com/photo-1501785888041-af3ef285b470");
+  background-size: cover;
+  background-position: center;
+}
+
+/* ===== OVERLAY ===== */
+.mmt-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(2, 6, 23, 0.75),
+      rgba(2, 6, 23, 0.9)
+    );
+  z-index: 1;
+}
+
+/* ===== CONTENT ===== */
+.mmt-hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ===== STACK FEEL (PREMIUM) ===== */
+.mmt-hero-content > * {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+  padding: 14px;
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+}
+
+/* ===== TABLET ===== */
+@media (min-width: 768px) {
+  .mmt-hero {
+    padding: 48px 24px 64px;
+    align-items: center;
+  }
+
+  .mmt-hero-content {
+    gap: 18px;
+  }
+
+  .mmt-hero-content > * {
+    padding: 18px;
+    border-radius: 24px;
+  }
+}
+
+/* ===== DESKTOP ===== */
+@media (min-width: 1024px) {
+  .mmt-hero {
+    padding: 72px 32px;
+  }
+
+  .mmt-hero-content {
+    gap: 22px;
+  }
+
+  .mmt-hero-content > * {
+    padding: 22px;
+    border-radius: 28px;
+  }
+}

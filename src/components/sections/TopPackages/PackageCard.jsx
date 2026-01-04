@@ -7,52 +7,67 @@ const PackageCard = ({
   featured,
 }) => {
   return (
-    <div
+    <article
       className="
-        group relative
-        rounded-[28px]
+        group
+        relative
+        flex flex-col
         overflow-hidden
-        bg-gradient-to-br from-rose-50 via-white to-sky-50
-        shadow-[0_25px_70px_rgba(0,0,0,0.12)]
-        transition-all duration-500
-        hover:-translate-y-3
+        rounded-2xl
+        bg-white
+        border border-gray-200
+        transition-all duration-300
+        hover:-translate-y-1
+        hover:shadow-xl
       "
     >
-      {/* Soft Glow */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-r from-pink-300/30 to-sky-300/30 blur-2xl" />
+      {/* Image Section */}
+      <div className="relative h-52 w-full overflow-hidden">
+        <img
+          src={image}
+          alt={title}
+          className="
+            h-full w-full object-cover
+            transition-transform duration-500
+            group-hover:scale-105
+          "
+        />
 
-      {/* Featured Ribbon */}
-      {featured && (
-        <div className="absolute top-5 right-5 z-10">
-          <span className="px-4 py-1 text-xs font-semibold rounded-full bg-gradient-to-r from-pink-500 to-rose-500 text-white shadow-lg">
-            ★ Featured
-          </span>
-        </div>
-      )}
-
-      {/* Image */}
-      <div className="relative p-5">
-        <div className="overflow-hidden rounded-2xl">
-          <img
-            src={image}
-            alt={title}
+        {/* Featured Tag */}
+        {featured && (
+          <span
             className="
-              w-full h-48 object-cover
-              transition-transform duration-700 ease-out
-              group-hover:scale-105
+              absolute top-4 left-4
+              rounded-full
+              bg-white/90 backdrop-blur
+              px-3 py-1
+              text-xs font-semibold
+              text-indigo-600
+              shadow-sm
             "
-          />
-        </div>
+          >
+            Featured
+          </span>
+        )}
 
-        {/* Floating Duration */}
-        <span className="absolute bottom-8 left-8 px-3 py-1 text-xs font-medium rounded-full bg-white/90 text-gray-700 shadow">
+        {/* Duration */}
+        <span
+          className="
+            absolute bottom-4 right-4
+            rounded-full
+            bg-black/60
+            px-3 py-1
+            text-xs font-medium
+            text-white
+          "
+        >
           {duration}
         </span>
       </div>
 
       {/* Content */}
-      <div className="px-6 pb-6">
-        <h3 className="text-xl font-bold text-gray-800">
+      <div className="flex flex-1 flex-col p-5">
+        <h3 className="text-lg font-semibold text-gray-900 leading-snug">
           {title}
         </h3>
 
@@ -60,36 +75,33 @@ const PackageCard = ({
           {description}
         </p>
 
-        {/* Divider */}
-        <div className="mt-4 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
-
-        {/* Footer */}
-        <div className="mt-5 flex items-center justify-between">
+        <div className="mt-auto pt-5 flex items-center justify-between">
+          {/* Price */}
           <div>
             <p className="text-xs text-gray-500">Starting from</p>
-            <p className="text-2xl font-bold text-indigo-500">
+            <p className="text-xl font-bold text-gray-900">
               {price}
             </p>
           </div>
 
+          {/* CTA */}
           <button
             className="
-              px-6 py-3
               rounded-full
+              px-5 py-2.5
               text-sm font-semibold
               text-white
               bg-gradient-to-r from-indigo-500 to-sky-500
               transition-all duration-300
-              hover:from-pink-500 hover:to-orange-400
-              hover:shadow-[0_10px_30px_rgba(236,72,153,0.5)]
+              hover:opacity-90
               active:scale-95
             "
           >
-            Book Trip
+            View Details
           </button>
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 

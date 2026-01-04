@@ -19,12 +19,10 @@ const FareSelector = ({ onSelect }) => {
           const isActive = selected === fare.id;
 
           return (
-            <div
+            <button
               key={fare.id}
-              role="button"
-              tabIndex={0}
+              type="button"
               onClick={() => handleChange(fare.id)}
-              onKeyDown={(e) => e.key === "Enter" && handleChange(fare.id)}
               className={`fare-card ${isActive ? "active" : ""}`}
             >
               <div className="fare-icon">
@@ -36,8 +34,8 @@ const FareSelector = ({ onSelect }) => {
                 <span className="fare-subtitle">{fare.subtitle}</span>
               </div>
 
-              <div className="fare-indicator" />
-            </div>
+              <span className="fare-indicator" />
+            </button>
           );
         })}
       </div>

@@ -24,76 +24,48 @@ const FlightSearch = () => {
       travellers,
       travelClass,
     };
-
     console.log("SEARCH PAYLOAD:", payload);
-    // later → navigate(`/flights?data=${JSON.stringify(payload)}`)
   };
 
   return (
     <div className="mmt-search-card">
       {/* TRIP TYPE */}
       <div className="mmt-trip-type">
-        <label>
-          <input
-            type="radio"
-            name="trip"
-            checked={tripType === "oneway"}
-            onChange={() => setTripType("oneway")}
-          />
-          One Way
-        </label>
-
-        <label>
-          <input
-            type="radio"
-            name="trip"
-            checked={tripType === "round"}
-            onChange={() => setTripType("round")}
-          />
-          Round Trip
-        </label>
-
-        <label>
-          <input
-            type="radio"
-            name="trip"
-            checked={tripType === "multi"}
-            onChange={() => setTripType("multi")}
-          />
-          Multi City
-        </label>
+        {["oneway", "round", "multi"].map((type) => (
+          <label key={type}>
+            <input
+              type="radio"
+              name="trip"
+              checked={tripType === type}
+              onChange={() => setTripType(type)}
+            />
+            {type === "oneway"
+              ? "One Way"
+              : type === "round"
+              ? "Round Trip"
+              : "Multi City"}
+          </label>
+        ))}
       </div>
 
       {/* FIELDS */}
       <div className="mmt-fields">
-        {/* FROM */}
         <div className="field">
           <small>From</small>
-          <input
-            value={from}
-            onChange={(e) => setFrom(e.target.value)}
-            placeholder="City or Airport"
-          />
-          <span className="sub">Enter departure city</span>
+          <input value={from} onChange={(e) => setFrom(e.target.value)} />
+          <span className="sub">Departure city</span>
         </div>
 
-        {/* SWAP */}
-        <button className="swap" onClick={swapLocations} title="Swap">
+        <button className="swap" onClick={swapLocations} title="Swap cities">
           ⇄
         </button>
 
-        {/* TO */}
         <div className="field">
           <small>To</small>
-          <input
-            value={to}
-            onChange={(e) => setTo(e.target.value)}
-            placeholder="City or Airport"
-          />
-          <span className="sub">Enter destination city</span>
+          <input value={to} onChange={(e) => setTo(e.target.value)} />
+          <span className="sub">Destination city</span>
         </div>
 
-        {/* DEPARTURE */}
         <div className="field">
           <small>Departure</small>
           <input
@@ -103,21 +75,19 @@ const FlightSearch = () => {
           />
         </div>
 
-        {/* RETURN */}
         <div className={`field ${tripType !== "round" ? "disabled" : ""}`}>
           <small>Return</small>
           <input
             type="date"
+            disabled={tripType !== "round"}
             value={returnDate}
             onChange={(e) => setReturnDate(e.target.value)}
-            disabled={tripType !== "round"}
           />
           {tripType !== "round" && (
             <span className="muted">Round trip only</span>
           )}
         </div>
 
-        {/* TRAVELLERS */}
         <div className="field">
           <small>Travellers & Class</small>
           <select
@@ -128,18 +98,17 @@ const FlightSearch = () => {
               setTravelClass(c);
             }}
           >
-            <option value="1-Economy">1 Traveller, Economy</option>
-            <option value="2-Economy">2 Travellers, Economy</option>
-            <option value="3-Economy">3 Travellers, Economy</option>
-            <option value="1-Business">1 Traveller, Business</option>
-            <option value="2-Business">2 Travellers, Business</option>
+            <option value="1-Economy">1 Traveller · Economy</option>
+            <option value="2-Economy">2 Travellers · Economy</option>
+            <option value="3-Economy">3 Travellers · Economy</option>
+            <option value="1-Business">1 Traveller · Business</option>
+            <option value="2-Business">2 Travellers · Business</option>
           </select>
         </div>
       </div>
 
-      {/* SEARCH BUTTON */}
       <button className="mmt-search-btn" onClick={onSearch}>
-        SEARCH
+        SEARCH FLIGHTS
       </button>
     </div>
   );
