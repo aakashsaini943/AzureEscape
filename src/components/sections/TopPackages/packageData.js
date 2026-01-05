@@ -23,18 +23,19 @@ export const packages = [
     image:
       "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
   },
-  {
-    id: 3,
-    title: "Dubai Luxury Experience",
-    duration: "4 Days / 3 Nights",
-    price: "₹1,10,000",
-    type: "Luxury",
-    featured: false,
-    description:
-      "Indulge in luxury stays, skyline views, and premium experiences in Dubai.",
-    image:
-      "https://images.unsplash.com/photo-1528701800489-20be3c1ea9b6",
-  },
+{
+  id: 4,
+  title: "Maldeeps",
+  duration: "5 Days / 4 Nights",
+  price: "₹95,000",
+  type: "Luxury",
+  featured: true,
+  description:
+    "Relax in private villas, explore serene beaches, and enjoy authentic Balinese culture.",
+  image:
+    "https://images.unsplash.com/photo-1501785888041-af3ef285b470",
+},
+
   {
     id: 4,
     title: "Family Fun Thailand",

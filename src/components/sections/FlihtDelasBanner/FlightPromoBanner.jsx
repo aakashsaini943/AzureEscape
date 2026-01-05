@@ -1,43 +1,35 @@
 import "./FlightPromoBanner.css";
 
-const partners = [
-  "airindia.png",
-  "spicejet.png",
-  "akasa.png",
-  "fly91.png",
-  "indigo.png",
-  "airindiaexpress.png",
-];
-
 export default function FlightPromoBanner() {
   return (
-    <section className="fp-banner">
-      {/* Main banner */}
-      <div className="fp-content">
-        <div className="fp-text">
-          <h2>FLIGHTS</h2>
-          <p>Flat 15% Off</p>
+    <section className="flight-hero">
+      <div className="flight-hero-inner">
+        {/* TEXT SIDE */}
+        <div className="flight-info">
+          <span className="flight-badge">New Year Travel Deals</span>
 
-          <span className="fp-pill">Sale ends 31st Dec</span>
+          <h1 className="flight-heading">
+            Fly More.
+            <br />
+            Pay Less.
+          </h1>
+
+          <p className="flight-subtext">
+            Exclusive flight offers across domestic & international routes.
+            Limited-time savings on top airlines.
+          </p>
+
+          <button className="flight-cta">
+            Explore Flight Deals
+          </button>
         </div>
 
-        <img
-          src="/images/plane.png"
-          alt="Flight"
-          className="fp-plane"
-        />
-      </div>
-
-      {/* Partner strip */}
-      <div className="fp-partners">
-        <div className="fp-track">
-          {[...partners, ...partners].map((logo, i) => (
-            <img
-              key={i}
-              src={`/partners/${logo}`}
-              alt="partner"
-            />
-          ))}
+        {/* IMAGE SIDE */}
+        <div className="flight-image">
+          <img
+            src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05"
+            alt="Flight travel"
+          />
         </div>
       </div>
     </section>

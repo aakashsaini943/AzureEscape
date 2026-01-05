@@ -10,8 +10,10 @@ const FlightSearch = () => {
   const [travelClass, setTravelClass] = useState("Economy");
 
   const swapLocations = () => {
-    setFrom(to);
-    setTo(from);
+    setFrom((prev) => {
+      setTo(prev);
+      return to;
+    });
   };
 
   const onSearch = () => {
@@ -24,11 +26,12 @@ const FlightSearch = () => {
       travellers,
       travelClass,
     };
+
     console.log("SEARCH PAYLOAD:", payload);
   };
 
   return (
-    <div className="mmt-search-card">
+    <div className="mmt-search-card" role="form">
       {/* TRIP TYPE */}
       <div className="mmt-trip-type">
         {["oneway", "round", "multi"].map((type) => (
@@ -36,6 +39,7 @@ const FlightSearch = () => {
             <input
               type="radio"
               name="trip"
+              value={type}
               checked={tripType === type}
               onChange={() => setTripType(type)}
             />
@@ -52,17 +56,33 @@ const FlightSearch = () => {
       <div className="mmt-fields">
         <div className="field">
           <small>From</small>
-          <input value={from} onChange={(e) => setFrom(e.target.value)} />
+          <input
+            value={from}
+            onChange={(e) => setFrom(e.target.value)}
+            placeholder="Departure city"
+            aria-label="From city"
+          />
           <span className="sub">Departure city</span>
         </div>
 
-        <button className="swap" onClick={swapLocations} title="Swap cities">
+        <button
+          type="button"
+          className="swap"
+          onClick={swapLocations}
+          aria-label="Swap cities"
+          title="Swap cities"
+        >
           ⇄
         </button>
 
         <div className="field">
           <small>To</small>
-          <input value={to} onChange={(e) => setTo(e.target.value)} />
+          <input
+            value={to}
+            onChange={(e) => setTo(e.target.value)}
+            placeholder="Destination city"
+            aria-label="To city"
+          />
           <span className="sub">Destination city</span>
         </div>
 
@@ -72,6 +92,7 @@ const FlightSearch = () => {
             type="date"
             value={departure}
             onChange={(e) => setDeparture(e.target.value)}
+            aria-label="Departure date"
           />
         </div>
 
@@ -82,6 +103,7 @@ const FlightSearch = () => {
             disabled={tripType !== "round"}
             value={returnDate}
             onChange={(e) => setReturnDate(e.target.value)}
+            aria-label="Return date"
           />
           {tripType !== "round" && (
             <span className="muted">Round trip only</span>
@@ -97,6 +119,7 @@ const FlightSearch = () => {
               setTravellers(Number(t));
               setTravelClass(c);
             }}
+            aria-label="Travellers and class"
           >
             <option value="1-Economy">1 Traveller · Economy</option>
             <option value="2-Economy">2 Travellers · Economy</option>
@@ -107,7 +130,11 @@ const FlightSearch = () => {
         </div>
       </div>
 
-      <button className="mmt-search-btn" onClick={onSearch}>
+      <button
+        type="button"
+        className="mmt-search-btn"
+        onClick={onSearch}
+      >
         SEARCH FLIGHTS
       </button>
     </div>
