@@ -14,7 +14,7 @@ import MiniOffers from "../components/sections/offer/MiniOffers";
 const Home = () => {
   return (
     <>
-      <Hero />
+      {/* <Hero /> */}
       <FlashSale />
       <MiniOffers/>
       <SavingsCompareCard />

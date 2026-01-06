@@ -1,48 +1,85 @@
-const stats = [
-  { label: "Happy Travelers", value: "10k+" },
-  { label: "Destinations", value: "500+" },
-  { label: "Years Experience", value: "5+" },
-  { label: "24/7 Support", value: "Always On" },
+import {
+  FaClock,
+  FaRoute,
+  FaHandshake,
+  FaSmile,
+} from "react-icons/fa";
+
+const highlights = [
+  {
+    title: "On-Time",
+    subtitle: "Reliable confirmations & updates",
+    icon: FaClock,
+  },
+  {
+    title: "Curated",
+    subtitle: "Thoughtfully planned routes & stays",
+    icon: FaRoute,
+  },
+  {
+    title: "Transparent",
+    subtitle: "Clear pricing, honest policies",
+    icon: FaHandshake,
+  },
+  {
+    title: "Human Support",
+    subtitle: "Real help, whenever needed",
+    icon: FaSmile,
+  },
 ];
 
 const StatsBar = () => {
   return (
-    <div className="mt-24">
+    <div className="mt-20">
       <div
         className="
           max-w-6xl mx-auto
-          grid grid-cols-2 md:grid-cols-4 gap-8
-          rounded-3xl
-          bg-gradient-to-r from-white/80 via-white/70 to-white/80
-          backdrop-blur-xl
-          border border-gray-200
-          shadow-md
-          px-6 py-10
+          rounded-2xl
+          bg-white/90
+          backdrop-blur
+          border border-gray-100
+          shadow-[0_12px_40px_rgba(0,0,0,0.06)]
+          px-8 py-8
         "
       >
-        {stats.map((stat) => (
-          <div
-            key={stat.label}
-            className="
-              text-center
-              transition-transform duration-300
-              hover:-translate-y-1
-            "
-          >
-            <div className="
-              text-3xl md:text-4xl
-              font-extrabold
-              bg-gradient-to-r from-sky-500 to-indigo-500
-              bg-clip-text text-transparent
-            ">
-              {stat.value}
-            </div>
+        <div className="grid gap-6 md:grid-cols-4">
+          {highlights.map((item) => {
+            const Icon = item.icon;
 
-            <div className="mt-2 text-sm md:text-base text-gray-600 font-medium">
-              {stat.label}
-            </div>
-          </div>
-        ))}
+            return (
+              <div
+                key={item.title}
+                className="
+                  flex items-center gap-4
+                  text-gray-800
+                "
+              >
+                {/* Icon */}
+                <div
+                  className="
+                    flex items-center justify-center
+                    w-10 h-10
+                    rounded-xl
+                    bg-indigo-50
+                    text-indigo-600
+                  "
+                >
+                  <Icon size={18} />
+                </div>
+
+                {/* Text */}
+                <div>
+                  <div className="text-sm font-semibold">
+                    {item.title}
+                  </div>
+                  <div className="text-xs text-gray-500">
+                    {item.subtitle}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
