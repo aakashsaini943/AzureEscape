@@ -8,12 +8,12 @@ const FooterBrand = () => {
   return (
     <div className="space-y-4">
       <h2 className="text-3xl font-extrabold text-white">
-        🌍 AzureEscape
+         AzureEscape
       </h2>
 
       <p className="opacity-80 max-w-md">
         Premium travel experiences designed for modern explorers.
-        Trusted by thousands worldwide.
+        Trusted by thousands worldwide. Travellers
       </p>
 
       <div className="flex gap-4">

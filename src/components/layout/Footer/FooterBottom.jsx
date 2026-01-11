@@ -3,7 +3,7 @@ const FooterBottom = () => {
     <div className="border-t border-white/10">
       <div className="max-w-7xl mx-auto px-10 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm opacity-70">
         <p>
-          © {new Date().getFullYear()} AzoreEscape. All rights reserved.
+          © {new Date().getFullYear()} AzoreEscape. pvt. ltd All rights reserved.
         </p>
 
         <div className="flex gap-6">
