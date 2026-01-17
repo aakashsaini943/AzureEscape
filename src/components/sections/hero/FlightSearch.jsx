@@ -1,144 +1,201 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import "./hero.styles.css";
 
-const FlightSearch = () => {
-  const [tripType, setTripType] = useState("oneway");
-  const [from, setFrom] = useState("Delhi (DEL)");
-  const [to, setTo] = useState("Bengaluru (BLR)");
-  const [departure, setDeparture] = useState("");
+const CITIES = [
+  { city: "Delhi", code: "DEL", airport: "Delhi Airport India" },
+  { city: "Bengaluru", code: "BLR", airport: "Bengaluru International Airport" },
+  { city: "Mumbai", code: "BOM", airport: "Mumbai International Airport" },
+  { city: "Hyderabad", code: "HYD", airport: "Rajiv Gandhi International Airport" },
+];
+
+export default function FlightSearch() {
+  const [tripType, setTripType] = useState("ONE");
+
+  const [fromCity, setFromCity] = useState(CITIES[0]);
+  const [toCity, setToCity] = useState(CITIES[1]);
+
+  const [activeDropdown, setActiveDropdown] = useState(null);
+
+  const [departureDate, setDepartureDate] = useState("");
   const [returnDate, setReturnDate] = useState("");
-  const [travellers, setTravellers] = useState(1);
-  const [travelClass, setTravelClass] = useState("Economy");
 
-  const swapLocations = () => {
-    setFrom((prev) => {
-      setTo(prev);
-      return to;
-    });
+  const [travellerClass, setTravellerClass] = useState(
+    "1 Traveller · Economy"
+  );
+
+  const handleSwap = () => {
+    const temp = fromCity;
+    setFromCity(toCity);
+    setToCity(temp);
   };
 
-  const onSearch = () => {
+  const handleSearch = () => {
     const payload = {
       tripType,
-      from,
-      to,
-      departure,
-      returnDate: tripType === "round" ? returnDate : null,
-      travellers,
-      travelClass,
+      from: fromCity,
+      to: toCity,
+      departureDate,
+      returnDate: tripType === "ROUND" ? returnDate : null,
+      travellerClass,
     };
 
     console.log("SEARCH PAYLOAD:", payload);
+    alert("Search triggered. Check console.");
   };
 
   return (
-    <div className="mmt-search-card" role="form">
-      {/* TRIP TYPE */}
-      <div className="mmt-trip-type">
-        {["oneway", "round", "multi"].map((type) => (
-          <label key={type}>
+    <div className="fs-wrapper">
+      {/* Header */}
+      <div className="fs-header">
+        <div className="fs-trip">
+          <label>
             <input
               type="radio"
-              name="trip"
-              value={type}
-              checked={tripType === type}
-              onChange={() => setTripType(type)}
+              checked={tripType === "ONE"}
+              onChange={() => setTripType("ONE")}
             />
-            {type === "oneway"
-              ? "One Way"
-              : type === "round"
-              ? "Round Trip"
-              : "Multi City"}
+            One Way
           </label>
-        ))}
+
+          <label>
+            <input
+              type="radio"
+              checked={tripType === "ROUND"}
+              onChange={() => setTripType("ROUND")}
+            />
+            Round Trip
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              checked={tripType === "MULTI"}
+              onChange={() => setTripType("MULTI")}
+            />
+            Multi City
+          </label>
+        </div>
+
+        <span className="fs-title">
+          Book International and Domestic Flights
+        </span>
       </div>
 
-      {/* FIELDS */}
-      <div className="mmt-fields">
-        <div className="field">
-          <small>From</small>
-          <input
-            value={from}
-            onChange={(e) => setFrom(e.target.value)}
-            placeholder="Departure city"
-            aria-label="From city"
-          />
-          <span className="sub">Departure city</span>
-        </div>
-
-        <button
-          type="button"
-          className="swap"
-          onClick={swapLocations}
-          aria-label="Swap cities"
-          title="Swap cities"
+      {/* Search Card */}
+      <div className="fs-card">
+        {/* FROM */}
+        <div
+          className="fs-block"
+          onClick={() => setActiveDropdown("from")}
         >
-          ⇄
-        </button>
+          <small>From</small>
+          <h2>{fromCity.city}</h2>
+          <p>
+            {fromCity.code}, {fromCity.airport}
+          </p>
 
-        <div className="field">
-          <small>To</small>
-          <input
-            value={to}
-            onChange={(e) => setTo(e.target.value)}
-            placeholder="Destination city"
-            aria-label="To city"
-          />
-          <span className="sub">Destination city</span>
-        </div>
-
-        <div className="field">
-          <small>Departure</small>
-          <input
-            type="date"
-            value={departure}
-            onChange={(e) => setDeparture(e.target.value)}
-            aria-label="Departure date"
-          />
-        </div>
-
-        <div className={`field ${tripType !== "round" ? "disabled" : ""}`}>
-          <small>Return</small>
-          <input
-            type="date"
-            disabled={tripType !== "round"}
-            value={returnDate}
-            onChange={(e) => setReturnDate(e.target.value)}
-            aria-label="Return date"
-          />
-          {tripType !== "round" && (
-            <span className="muted">Round trip only</span>
+          {activeDropdown === "from" && (
+            <ul className="dropdown">
+              {CITIES.map((city) => (
+                <li
+                  key={city.code}
+                  onClick={() => {
+                    setFromCity(city);
+                    setActiveDropdown(null);
+                  }}
+                >
+                  <strong>
+                    {city.city} ({city.code})
+                  </strong>
+                  <em>{city.airport}</em>
+                </li>
+              ))}
+            </ul>
           )}
         </div>
 
-        <div className="field">
+        {/* SWAP */}
+        <button className="swap-btn" onClick={handleSwap}>
+          ⇄
+        </button>
+
+        {/* TO */}
+        <div
+          className="fs-block"
+          onClick={() => setActiveDropdown("to")}
+        >
+          <small>To</small>
+          <h2>{toCity.city}</h2>
+          <p>
+            {toCity.code}, {toCity.airport}
+          </p>
+
+          {activeDropdown === "to" && (
+            <ul className="dropdown">
+              {CITIES.map((city) => (
+                <li
+                  key={city.code}
+                  onClick={() => {
+                    setToCity(city);
+                    setActiveDropdown(null);
+                  }}
+                >
+                  <strong>
+                    {city.city} ({city.code})
+                  </strong>
+                  <em>{city.airport}</em>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+
+        {/* DEPARTURE */}
+        <div className="fs-block">
+          <small>Departure</small>
+          <h2>{departureDate || "Select Date"}</h2>
+          <input
+            type="date"
+            value={departureDate}
+            onChange={(e) => setDepartureDate(e.target.value)}
+          />
+        </div>
+
+        {/* RETURN */}
+        <div className={`fs-block ${tripType === "ONE" ? "disabled" : ""}`}>
+          <small>Return</small>
+          <h2>{returnDate || "Tap to add date"}</h2>
+          <input
+            type="date"
+            disabled={tripType === "ONE"}
+            value={returnDate}
+            onChange={(e) => setReturnDate(e.target.value)}
+          />
+          {tripType !== "ONE" && (
+            <p className="hint">For bigger discounts</p>
+          )}
+        </div>
+
+        {/* TRAVELLERS */}
+        <div className="fs-block">
           <small>Travellers & Class</small>
+          <h2>{travellerClass.split("·")[0]}</h2>
+          <p>Economy / Premium Economy</p>
+
           <select
-            value={`${travellers}-${travelClass}`}
-            onChange={(e) => {
-              const [t, c] = e.target.value.split("-");
-              setTravellers(Number(t));
-              setTravelClass(c);
-            }}
-            aria-label="Travellers and class"
+            value={travellerClass}
+            onChange={(e) => setTravellerClass(e.target.value)}
           >
-            <option value="1-Economy">1 Traveller · Economy</option>
-            <option value="2-Economy">2 Travellers · Economy</option>
-            <option value="3-Economy">3 Travellers · Economy</option>
-            <option value="1-Business">1 Traveller · Business</option>
-            <option value="2-Business">2 Travellers · Business</option>
+            <option>1 Traveller · Economy</option>
+            <option>2 Travellers · Economy</option>
+            <option>1 Traveller · Business</option>
           </select>
         </div>
       </div>
 
-      <button
-        type="button"
-        className="mmt-search-btn"
-        onClick={onSearch}
-      >
+      <button className="search-btn" onClick={handleSearch}>
         SEARCH FLIGHTS
       </button>
     </div>
   );
-};
-
-export default FlightSearch;
+}

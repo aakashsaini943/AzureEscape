@@ -1,5 +1,5 @@
 /* HERO */
-.mmt-hero {
+ .mmt-hero {
   position: relative;
   min-height: 100vh;
   z-index: 2;
@@ -33,6 +33,10 @@
 .mmt-tabs-wrapper {
   overflow-x: auto;
   scrollbar-width: none;
+  position: relative;
+  top: -140px ;
+  z-index: 5;
+
 }
 
 .mmt-tabs-wrapper::-webkit-scrollbar {
@@ -61,7 +65,7 @@
   border: none;
   font-size: 14px;
   font-weight: 500;
-  color: #374151;
+  color: #7296cf;
   cursor: pointer;
   white-space: nowrap;
   transition: color 0.2s ease, transform 0.15s ease;
@@ -107,7 +111,7 @@
 
 /* SEARCH CARD */
 .mmt-search-card {
-  background: #ffffff;
+  background: #c25858;
   border-radius: 28px;
   padding: 24px 28px 28px;
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.25);
@@ -675,131 +679,127 @@
 
 /* ==============================FLIGHTSEARCH.JSX==================== */
 
-
-/* CARD */
-.mmt-search-card {
-  background: #fff;
-  border-radius: 18px;
-  padding: 16px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+* {
+  box-sizing: border-box;
+  font-family: Inter, system-ui, Arial;
 }
 
-/* TRIP TYPE */
-.mmt-trip-type {
+.fs-wrapper {
+  background: #f4f4f4;
+  padding: 24px;
+}
+
+.fs-header {
   display: flex;
-  gap: 16px;
-  margin-bottom: 14px;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.fs-trip label {
+  margin-right: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.fs-title {
   font-size: 14px;
-  font-weight: 500;
+  color: #000000;
 }
 
-.mmt-trip-type label {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-}
-
-/* FIELDS – MOBILE FIRST */
-.mmt-fields {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-  position: relative;
-}
-
-/* FIELD */
-.field {
-  background: #f9fafb;
-  border: 1px solid #e5e7eb;
-  border-radius: 14px;
-  padding: 12px 14px;
-}
-
-.field small {
-  font-size: 11px;
-  color: #6b7280;
-}
-
-.field input,
-.field select {
-  width: 100%;
-  border: none;
-  background: transparent;
-  font-size: 20px;
-font-weight: 600;
-  outline: none;
-}
-
-.sub {
-  font-size: 11px;
-  color: #9ca3af;
-}
-
-.muted {
-  font-size: 11px;
-  color: #9ca3af;
-}
-
-/* DISABLED */
-.field.disabled {
-  opacity: 0.6;
-  pointer-events: none;
-}
-
-/* SWAP BUTTON */
-.swap {
-  position: absolute;
-  top: 52px;
-  right: 12px;
+.fs-card {
   background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  font-size: 16px;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  display: grid;
+  grid-template-columns: 1.4fr 40px 1.4fr 1fr 1fr 1fr;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  overflow: hidden;
 }
 
-/* SEARCH CTA */
-.mmt-search-btn {
-  margin-top: 16px;
+.fs-block {
+  padding: 16px;
+  border-right: 1px solid #eee;
+  position: relative;
+  cursor: pointer;
+}
+
+.fs-block:last-child {
+  border-right: none;
+}
+
+.fs-block small {
+  font-size: 12px;
+  color: #6b6a6a;
+}
+
+.fs-block h2 {
+  margin: 6px 0;
+  font-size: 22px;
+}
+
+.fs-block p {
+  font-size: 12px;
+  color: #000000;
+}
+
+.fs-block input,
+.fs-block select {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.fs-block.disabled {
+  opacity: 0.5;
+}
+
+.hint {
+  color: #ff6d00;
+  font-weight: 600;
+}
+
+.swap-btn {
+  border: none;
+  background: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  z-index: 10;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.dropdown li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown li:hover {
+  background: #f0f6ff;
+}
+
+.search-btn {
+  margin-top: 20px;
   width: 100%;
   padding: 14px;
-  border-radius: 14px;
+  background: linear-gradient(90deg,#53b2fe,#065af3);
   border: none;
-  background: linear-gradient(135deg, #0ea5e9, #0284c7);
   color: #fff;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
+  border-radius: 8px;
   cursor: pointer;
 }
 
-/* TABLET */
-@media (min-width: 768px) {
-  .mmt-fields {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .swap {
-    top: 42%;
-    right: auto;
-    left: 31%;
-    transform: translate(-50%, -50%);
-  }
-}
-
-/* DESKTOP */
-@media (min-width: 1024px) {
-  .mmt-fields {
-    grid-template-columns: repeat(6, 1fr);
-  }
-
-  .mmt-search-btn {
-    width: auto;
-    padding: 14px 32px;
-    align-self: flex-end;
+@media (max-width: 900px) {
+  .fs-card {
+    grid-template-columns: 1fr;
   }
 }
 
