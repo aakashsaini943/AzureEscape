@@ -10,11 +10,8 @@ import {
   FaPassport,
 } from "react-icons/fa";
 
-export const HERO_TABS = [
-  // Home (default)
+export const NAV_TABS = [
   { id: "home", label: "Home", icon: FaHome, path: "/" },
-
-  // Tabs (paths FIXED to be relative & lowercase)
   { id: "flights", label: "Flights", icon: FaPlane, path: "/flights" },
   { id: "hotels", label: "Hotels", icon: FaHotel, path: "/hotels" },
   { id: "homestays", label: "Homestays", icon: FaHouseUser, path: "/homestays" },

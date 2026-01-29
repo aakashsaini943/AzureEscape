@@ -1,0 +1,208 @@
+/* ================= NAVBAR BASE ================= */
+
+.mmt-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+/* ================= DESKTOP NAV ================= */
+
+.desktop-nav {
+  display: block;
+}
+
+.mmt-tabs-wrapper {
+  overflow-x: auto;
+}
+
+.mmt-tabs {
+  display: flex;
+  gap: 12px;
+  padding: 12px 20px;
+  justify-content: center;
+}
+
+/* TAB */
+.mmt-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: none;
+
+  background: rgba(244, 246, 251, 0.9);
+  backdrop-filter: blur(8px);
+
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.15s ease,
+    box-shadow 0.25s ease;
+}
+
+/* ICON */
+.mmt-tab .tab-icon {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+/* HOVER */
+.mmt-tab:hover {
+  background: rgba(224, 242, 254, 0.9);
+  color: #0284c7;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(2, 132, 199, 0.25);
+}
+
+/* ACTIVE */
+.mmt-tab.active {
+  background: linear-gradient(135deg, #0284c7, #0ea5e9);
+  color: #ffffff;
+  box-shadow: 0 10px 28px rgba(2, 132, 199, 0.45);
+}
+
+/* ================= MOBILE NAV ================= */
+
+.mobile-nav {
+  display: none;
+  height: 56px;
+  padding: 0 16px;
+
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO */
+.mobile-logo {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  color: #0284c7;
+}
+
+/* DOTS BUTTON */
+.mobile-more-btn {
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+  border: none;
+
+  background: rgba(240, 246, 255, 0.9);
+  color: #0284c7;
+
+  font-size: 26px;
+  font-weight: 700;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    transform 0.15s ease,
+    box-shadow 0.25s ease;
+}
+
+.mobile-more-btn:hover {
+  background: #e0f2fe;
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.35);
+}
+
+/* ================= BOTTOM SHEET ================= */
+
+.sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.45);
+  z-index: 9998;
+}
+
+.bottom-sheet {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: -100%;
+  z-index: 9999;
+
+  background: #ffffff;
+  border-radius: 22px 22px 0 0;
+  padding: 14px 18px 28px;
+
+  transition: bottom 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bottom-sheet.open {
+  bottom: 0;
+}
+
+/* HANDLE */
+.sheet-handle {
+  width: 42px;
+  height: 5px;
+  border-radius: 999px;
+  background: #d1d5db;
+  margin: 6px auto 18px;
+}
+
+/* SHEET ITEM */
+.bottom-sheet button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 14px 12px;
+  border-radius: 14px;
+  border: none;
+  background: transparent;
+
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.bottom-sheet button:hover {
+  background: #f0f6ff;
+}
+
+.bottom-sheet button.active {
+  background: linear-gradient(
+    to right,
+    rgba(14,165,233,0.15),
+    rgba(14,165,233,0.05)
+  );
+  color: #0284c7;
+}
+
+/* ================= RESPONSIVE SWITCH ================= */
+
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: flex;
+  }
+}

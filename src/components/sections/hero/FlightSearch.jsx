@@ -155,6 +155,7 @@ export default function FlightSearch() {
           <small>Departure</small>
           <h2>{departureDate || "Select Date"}</h2>
           <input
+          
             type="date"
             value={departureDate}
             onChange={(e) => setDepartureDate(e.target.value)}

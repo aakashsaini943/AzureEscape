@@ -1,5 +1,5 @@
 import "./hero.styles.css";
-import HeroTabs from "./HeroTabs";
+// import HeroTabs from "./HeroTabs";
 import FlightSearch from "./FlightSearch";
 import FareOptions from "./FareOptions";
 
@@ -9,7 +9,7 @@ const Hero = () => {
       <div className="mmt-hero-overlay" />
 
       <div className="mmt-hero-content">
-        <HeroTabs />
+        {/* <HeroTabs /> */}
         <FlightSearch />
         <FareOptions />
       </div>
