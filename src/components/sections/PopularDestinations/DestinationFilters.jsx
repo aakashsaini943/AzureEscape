@@ -78,3 +78,4 @@ const DestinationFilters = ({ region, setRegion }) => {
 };
 
 export default DestinationFilters;
+ 
