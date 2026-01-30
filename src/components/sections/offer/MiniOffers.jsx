@@ -1,4 +1,4 @@
-import "./Minioffers.css";
+import "./minioffers.css";
 
 export default function Minioffers() {
   return (
