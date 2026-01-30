@@ -1,125 +1,93 @@
-const DestinationSearchBanner = ({ query, setQuery, region, setRegion }) => {
+const destinations = [
+  {
+    title: "Maldives",
+    subtitle: "Overwater Villas",
+    image: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21",
+  },
+  {
+    title: "Paris",
+    subtitle: "Timeless Romance",
+    image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34",
+  },
+  {
+    title: "Santorini",
+    subtitle: "Aegean Serenity",
+    image: "https://images.unsplash.com/photo-1505731132164-cca5fcbad5b3",
+  },
+];
+
+const LuxuryDestinationShowcase = () => {
   return (
-    <section
-      className="
-        relative
-        min-h-[70vh]
-        flex items-center
-        px-4 sm:px-6
-        overflow-hidden
-      "
-    >
-      {/* Background image */}
-      <img
-        src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
-        alt="Travel Banner"
-        className="absolute inset-0 w-full h-full object-cover "
-      />
+    <section className="bg-[#2c2c2e] py-28">
+      <div className="max-w-7xl mx-auto px-6">
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/90" />
-
-      {/* Content */}
-      <div className="relative max-w-5xl mx-auto w-full text-center text-white">
-        {/* Heading */}
-        <h1 className="text-3xl sm:text-5xl font-bold leading-tight">
-          Discover Your Next
-          <span className="text-sky-400"> Adventure</span>
-        </h1>
-
-        <p className="mt-4 text-gray-300 text-sm sm:text-lg max-w-2xl mx-auto">
-          Search destinations, compare experiences, and plan unforgettable trips worldwide
-        </p>
-
-        {/* Search Bar */}
-        <div
-          className="
-            mt-10
-            bg-white/10 backdrop-blur-xl
-            border border-white/20
-            rounded-2xl
-            p-3
-            shadow-2xl
-          "
-        >
-          <div className="flex flex-col sm:flex-row gap-3">
-            {/* Destination Input */}
-            <input
-              type="text"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search destinations like Bali, Goa, Paris"
-              className="
-                flex-1
-                px-5 py-3
-                rounded-xl
-                bg-black/40
-                text-white
-                placeholder-gray-400
-                outline-none
-                focus:ring-2 focus:ring-sky-400
-              "
-            />
-
-            {/* Region Filter */}
-            <select
-              value={region}
-              onChange={(e) => setRegion(e.target.value)}
-              className="
-                px-5 py-3
-                rounded-xl
-                bg-black/40
-                text-white
-                outline-none
-                focus:ring-2 focus:ring-sky-400
-              "
-            >
-              <option value="All">All Regions</option>
-              <option value="India">India</option>
-              <option value="Asia">Asia</option>
-              <option value="Europe">Europe</option>
-              <option value="Middle East">Middle East</option>
-            </select>
-
-            {/* Search Button */}
-            <button
-              className="
-                px-8 py-3
-                rounded-xl
-                bg-sky-400
-                text-white
-                font-medium
-                transition-all duration-300
-                hover:bg-sky-500
-              "
-            >
-              Search
-            </button>
-          </div>
+        {/* Header */}
+        <div className="max-w-3xl mb-20">
+          <span className="block mb-5 text-xs tracking-[0.35em] uppercase text-amber-300/80">
+            Curated Journeys
+          </span>
+          <h2 className="text-4xl sm:text-5xl font-light text-white leading-tight">
+            Destinations designed for
+            <span className="block font-semibold mt-2">quiet luxury</span>
+          </h2>
         </div>
 
-        {/* Supporting Resources */}
-        <div className="mt-8 flex flex-wrap justify-center gap-3 text-sm">
-          {["Popular Trips", "Best Time to Visit", "Budget Friendly", "Top Rated"].map(
-            (item) => (
-              <span
-                key={item}
-                className="
-                  px-4 py-1.5
-                  rounded-full
-                  bg-white/10
-                  border border-white/20
-                  text-gray-200
-                "
-              >
-                {item}
-              </span>
-            )
-          )}
+        {/* Showcase */}
+        <div className="space-y-28">
+          {destinations.map((item, index) => (
+            <div
+              key={index}
+              className={`grid grid-cols-1 md:grid-cols-2 gap-16 items-center ${
+                index % 2 !== 0 ? "md:flex-row-reverse" : ""
+              }`}
+            >
+              {/* Image Block */}
+              <div className="relative h-[520px] rounded-[32px] overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+
+                {/* Soft cinematic overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+              </div>
+
+              {/* Text Block */}
+              <div className="max-w-md">
+                <h3 className="text-3xl font-light text-white">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-sm tracking-widest uppercase text-amber-300/80">
+                  {item.subtitle}
+                </p>
+
+                <p className="mt-6 text-gray-300 leading-relaxed">
+                  Experience a destination where every detail is curated —
+                  from the landscapes to the moments that stay with you.
+                </p>
+
+                <button
+                  className="
+                    mt-8
+                    text-sm
+                    tracking-wide
+                    text-amber-300
+                    border-b border-amber-300/40
+                    hover:border-amber-300
+                    transition
+                  "
+                >
+                  View journey →
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
+
       </div>
     </section>
   );
 };
 
-export default DestinationSearchBanner;
+export default LuxuryDestinationShowcase;
