@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { NAV_TABS } from "./NavTabs";
 import "./Navbar.style.css";
 import { GiHamburgerMenu } from "react-icons/gi";
+import SecondaryNavbar from "./SecondaryNavbar"; // 👈 ADD THIS
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -13,6 +14,7 @@ const Navbar = () => {
 
   return (
     <>
+      {/* ================= PRIMARY NAVBAR ================= */}
       <header className="mmt-navbar">
 
         {/* ===== DESKTOP NAVBAR ===== */}
@@ -46,13 +48,15 @@ const Navbar = () => {
             className="mobile-more-btn"
             onClick={() => setOpenSheet(true)}
           >
-           <GiHamburgerMenu />
-
+            <GiHamburgerMenu />
           </button>
         </div>
       </header>
 
-      {/* BACKDROP */}
+      {/* ================= SECONDARY NAVBAR ================= */}
+      <SecondaryNavbar />
+
+      {/* ================= MOBILE BOTTOM SHEET ================= */}
       {openSheet && (
         <div
           className="sheet-backdrop"
@@ -60,7 +64,6 @@ const Navbar = () => {
         />
       )}
 
-      {/* BOTTOM SHEET */}
       <div className={`bottom-sheet ${openSheet ? "open" : ""}`}>
         <div className="sheet-handle" />
 

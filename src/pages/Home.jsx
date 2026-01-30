@@ -9,12 +9,13 @@ import SavingsCompareCard from "../components/sections/SavingCard/SavingsCompare
 import FlashSale from "../components/sections/FlashSale/FlashSale";
 import FlightPromoBanner from "../components/sections/FlihtDelasBanner/FlightPromoBanner";
 import MiniOffers from "../components/sections/offer/MiniOffers";
+// import Hero from "../components/sections/hero/Hero";
 
 
 const Home = () => {
   return (
     <>
-      {/* <Hero /> */}
+      <Hero />
       <FlashSale />
       <MiniOffers/>
       <SavingsCompareCard />

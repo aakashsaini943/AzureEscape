@@ -8,11 +8,14 @@ import Trains from "../pages/Trains";
 import Buses from "../pages/Buses";
 import Cabs from "../pages/Cabs";
 import Visa from "../pages/Visa";
+import Login from "../pages/Login";
+
 
 const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+       <Route path="/login" element={<Login />} />
       <Route path="/hotels" element={<Hotels />} />
       <Route path="/flights" element={<Flights />} />
 

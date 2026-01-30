@@ -13,7 +13,7 @@
   position: relative;
   min-height: 100vh;
 
-  /* desktop navbar space */
+  /* Desktop navbar space */
   padding-top: 80px;
 
   display: flex;
@@ -21,15 +21,23 @@
   align-items: flex-start;
 
   background:
-    linear-gradient(
-      to bottom,
-      rgba(2, 6, 23, 0.45),
-      rgba(2, 6, 23, 0.85)
+    radial-gradient(
+      1200px circle at top center,
+      #e6f3ff 0%,
+      #f5faff 40%,
+      transparent 70%
     ),
-    url("/images/resort-sunset.jpg") center / cover no-repeat;
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #f8fbff 45%,
+      #eef6ff 100%
+    );
 }
 
-/* Overlay (already in JSX) */
+
+
+/* Overlay */
 .mmt-hero-overlay {
   position: absolute;
   inset: 0;
@@ -61,8 +69,7 @@
   border-radius: 28px;
   padding: 26px 28px 30px;
 
-  box-shadow:
-    0 25px 60px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
 }
 
 /* =====================================================
@@ -98,7 +105,7 @@
 }
 
 /* =====================================================
-   SEARCH CARD GRID
+   SEARCH CARD GRID (DESKTOP)
 ===================================================== */
 .fs-card {
   background: #ffffff;
@@ -263,28 +270,9 @@
 }
 
 /* MOBILE */
-@media (max-width: 900px) {
-  .fs-card {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 768px) {
 
-  .swap-btn {
-    margin: 0 auto;
-  }
-
-  .fs-block {
-    border-right: none;
-    border-bottom: 1px solid #e5e7eb;
-  }
-
-  .fs-block:last-child {
-    border-bottom: none;
-  }
-}
-
-/* SMALL MOBILE */
-@media (max-width: 640px) {
-  /* IMPORTANT: mobile navbar is overlay */
+  /* Mobile navbar is overlay */
   .mmt-hero {
     padding-top: 0;
   }
@@ -295,28 +283,10 @@
 
   .fs-wrapper {
     padding: 18px;
-    border-radius: 20px;
-  }
-
-  .search-btn {
-    font-size: 15px;
-    padding: 14px;
-  }
-}
-
-
-
-
-/* ================= MOBILE UX UPGRADE ================= */
-@media (max-width: 768px) {
-
-  /* HERO spacing already fixed */
-  .fs-wrapper {
-    padding: 16px;
     border-radius: 22px;
   }
 
-  /* STACKED CARD FEEL */
+  /* STACKED CARD */
   .fs-card {
     grid-template-columns: 1fr;
     border-radius: 20px;
@@ -334,7 +304,6 @@
     border-bottom: none;
   }
 
-  /* TEXT SIZE ADJUST */
   .fs-block h2 {
     font-size: 18px;
   }
@@ -343,7 +312,7 @@
     font-size: 11px;
   }
 
-  /* SWAP FLOATING BUTTON */
+  /* Floating swap */
   .mobile-swap {
     position: absolute;
     left: 50%;
@@ -359,7 +328,7 @@
     z-index: 5;
   }
 
-  /* DROPDOWN → OVERLAY */
+  /* Dropdown overlay */
   .dropdown {
     position: fixed;
     left: 16px;
@@ -367,17 +336,11 @@
     top: 140px;
     max-height: 320px;
     overflow-y: auto;
-
     border-radius: 16px;
     z-index: 9999;
   }
 
-  /* DATE INPUT TAP FEEL */
-  .fs-block input[type="date"] {
-    font-size: 16px;
-  }
-
-  /* CTA BUTTON */
+  /* CTA */
   .search-btn {
     margin-top: 18px;
     height: 52px;

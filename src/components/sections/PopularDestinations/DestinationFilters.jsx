@@ -53,7 +53,7 @@ const DestinationFilters = ({ region, setRegion }) => {
                     ? "text-amber-300"
                     : "text-gray-400 hover:text-white"
                 }
-                active:translate-y-[1px]
+                active:translate-y-px
               `}
             >
               {f}
@@ -63,7 +63,7 @@ const DestinationFilters = ({ region, setRegion }) => {
                 className={`
                   absolute left-1/2 -bottom-1.5
                   -translate-x-1/2
-                  h-[1px] w-6
+                  h-px w-6
                   bg-amber-300
                   transition-opacity duration-300
                   ${active ? "opacity-100" : "opacity-0"}
