@@ -3,13 +3,11 @@ import Hero from "../components/sections/hero/Hero";
 import PopularDestinations from "../components/sections/PopularDestinations/PopularDestinations";
 import TopPackages from "../components/sections/TopPackages/TopPackages";
 import WhyChooseUs from "../components/sections/WhyChooseUs/WhyChooseUs";
-// import Testimonials from "../components/sections/Testimonials/Testimonials";
 import CTA from "../components/sections/CTA/CTA";
 import SavingsCompareCard from "../components/sections/SavingCard/SavingsCompareCard";
 import FlashSale from "../components/sections/FlashSale/FlashSale";
 import FlightPromoBanner from "../components/sections/FlihtDelasBanner/FlightPromoBanner";
-import MiniOffers from "../components/sections/offer/Minioffers";
-// import Hero from "../components/sections/hero/Hero";
+import Minioffers from "../components/sections/offer/Minioffers";
 
 
 const Home = () => {
@@ -17,7 +15,7 @@ const Home = () => {
     <>
       <Hero />
       <FlashSale />
-      <MiniOffers/>
+      <Minioffers/>
       <SavingsCompareCard />
       <FlightPromoBanner />
    
