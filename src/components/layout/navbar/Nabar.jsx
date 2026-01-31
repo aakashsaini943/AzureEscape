@@ -42,7 +42,7 @@ const Navbar = () => {
 
         {/* ===== MOBILE NAVBAR ===== */}
         <div className="mobile-nav">
-          <span className="mobile-logo">AzureEscape.</span>
+          <span className="mobile-logo">AzureEscape</span>
 
           <button
             className="mobile-more-btn"
