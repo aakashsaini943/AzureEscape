@@ -7,7 +7,7 @@ import CTA from "../components/sections/CTA/CTA";
 import SavingsCompareCard from "../components/sections/SavingCard/SavingsCompareCard";
 import FlashSale from "../components/sections/FlashSale/FlashSale";
 import FlightPromoBanner from "../components/sections/FlihtDelasBanner/FlightPromoBanner";
-import Minioffers from "../components/sections/offer/MiniOffers";
+import Minioffers from "../components/sections/offer/Minioffers";
 
 const Home = () => {
   return (
