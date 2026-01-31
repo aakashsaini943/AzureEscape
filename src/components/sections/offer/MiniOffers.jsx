@@ -1,6 +1,7 @@
-import "./MiniOffers.css";
+import "./Minioffers.style.css"
 
-export default function MiniOffers() {
+
+export default function Minioffers() {
   return (
     <section className="fb-section">
       <h2 className="fb-title">Featured Brands</h2>

@@ -8,7 +8,7 @@ import CTA from "../components/sections/CTA/CTA";
 import SavingsCompareCard from "../components/sections/SavingCard/SavingsCompareCard";
 import FlashSale from "../components/sections/FlashSale/FlashSale";
 import FlightPromoBanner from "../components/sections/FlihtDelasBanner/FlightPromoBanner";
-import MiniOffers from "../components/sections/offer/MiniOffers";
+import MiniOffers from "../components/sections/offer/Minioffers";
 // import Hero from "../components/sections/hero/Hero";
 
 
