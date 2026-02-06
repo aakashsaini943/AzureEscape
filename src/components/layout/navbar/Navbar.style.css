@@ -260,126 +260,144 @@
 
 
 
-
-
-/* ===== BASE ===== */
+/* ================= ROOT ================= */
 .sec-navbar {
-  height: 56px;
-  background: linear-gradient(180deg, #0b1220, #020617);
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  font-family: Inter, system-ui, sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
+/* ================= CONTAINER ================= */
 .sec-container {
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 16px;
-
+  max-width: 1200px;
+  margin: auto;
+  padding: 14px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* ===== LEFT ===== */
-.sec-logo {
-  font-size: 16px;
+/* ================= BRAND ================= */
+.sec-brand {
+  font-size: 1.6rem;
   font-weight: 700;
-  color: #38bdf8;
+  background: linear-gradient(135deg, #0066ff, #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
 }
 
-/* ===== RIGHT ===== */
+/* ================= RIGHT ================= */
 .sec-right {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
 }
 
-/* ITEM */
-.sec-item {
+/* ================= ICON BUTTON ================= */
+.sec-icon-btn {
   display: flex;
   align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  cursor: pointer;
-  color: #e5e7eb;
-}
-
-.sec-item svg {
-  font-size: 15px;
-  color: #fbbf24;
-}
-
-/* DROPDOWN BUTTON */
-.sec-item button {
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
   background: transparent;
   border: none;
-  color: inherit;
-  display: flex;
-  align-items: center;
-  gap: 6px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #0f0f0f;
+  transition: all 0.25s ease;
 }
 
-/* LOGIN BUTTON */
-.login-btn {
-  padding: 6px 12px;
-  background: rgba(255,255,255,0.08);
-  border-radius: 999px;
+.sec-icon-btn svg {
+  font-size: 1.05rem;
 }
 
-/* DROPDOWN */
-.dropdown {
+/* Hover effect */
+.sec-icon-btn:hover {
+  background: rgba(0, 102, 255, 0.08);
+  color: #0066ff;
+}
+
+/* ================= PRIMARY ================= */
+.sec-icon-btn.primary {
+  background: linear-gradient(135deg, #0066ff, #00b4ff);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 102, 255, 0.25);
+}
+
+.sec-icon-btn.primary:hover {
+  transform: translateY(-1px);
+}
+
+/* ================= DROPDOWN ================= */
+.sec-dropdown-wrap {
   position: relative;
 }
 
 .sec-dropdown {
   position: absolute;
-  top: calc(100% + 10px);
+  top: 120%;
   right: 0;
+  min-width: 220px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+  padding: 10px;
+  animation: fadeUp 0.25s ease;
+}
 
-  background: #ffffff;
-  color: #111827;
-  min-width: 200px;
-  padding: 12px;
+/* ================= DROPDOWN ITEM ================= */
+.sec-dropdown-item {
+  padding: 10px 14px;
   border-radius: 10px;
-
-  box-shadow: 0 16px 32px rgba(0,0,0,0.25);
-  z-index: 99;
-}
-
-.sec-dropdown p {
-  font-size: 13px;
-  padding: 8px;
-  border-radius: 6px;
+  font-size: 0.9rem;
   cursor: pointer;
+  transition: all 0.2s ease;
+  color: #0f0f0f;
 }
 
-.sec-dropdown p:hover {
-  background: #f0f6ff;
-  color: #0284c7;
+.sec-dropdown-item:hover {
+  background: rgba(0, 102, 255, 0.08);
+  color: #0066ff;
 }
 
-/* CTA */
-.primary-action {
+/* ================= PRIMARY BTN ================= */
+.sec-primary-btn {
   width: 100%;
-  height: 36px;
-  margin-bottom: 10px;
-
-  background: linear-gradient(135deg, #0284c7, #0ea5e9);
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 10px;
   border: none;
-  border-radius: 8px;
-  color: #ffffff;
-  font-weight: 600;
   cursor: pointer;
+  background: linear-gradient(135deg, #0066ff, #00b4ff);
+  color: #fff;
+  font-weight: 600;
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 900px) {
-  .sec-navbar {
+/* ================= ANIMATION ================= */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .sec-container {
+    padding: 12px 16px;
+  }
+
+  .sec-icon-btn span {
     display: none;
   }
 }
@@ -388,130 +406,117 @@
 
 
 
+/* =====================================================
+   SAFE MOBILE RESPONSIVE UPGRADES
+   (APPEND ONLY – NO OVERWRITE)
+===================================================== */
 
+@media (max-width: 768px) {
 
-
-/* ===== BASE ===== */
-.sec-navbar {
-  height: 56px;
-  background: linear-gradient(180deg, #0b1220, #020617);
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  font-family: Inter, system-ui, sans-serif;
-}
-
-.sec-container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 16px;
-  width: 100%;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* ===== LEFT ===== */
-.sec-brand {
-  font-size: 15px;
-  font-weight: 700;
-  color: #38bdf8;
-}
-
-/* ===== RIGHT ===== */
-.sec-right {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-/* ===== ICON BUTTON ===== */
-.sec-icon-btn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: transparent;
-  border: 1px solid transparent;
-
-  color: #e5e7eb;
-  font-size: 13px;
-  cursor: pointer;
-
-  transition: all 0.2s ease;
-}
-
-.sec-icon-btn svg {
-  font-size: 16px;
-  color: #fbbf24;
-}
-
-/* Hover */
-.sec-icon-btn:hover {
-  background: rgba(255,255,255,0.08);
-  border-color: rgba(255,255,255,0.15);
-}
-
-/* Primary (Login) */
-.sec-icon-btn.primary {
-  background: rgba(255,255,255,0.1);
-  border-color: rgba(255,255,255,0.2);
-}
-
-/* ===== DROPDOWN ===== */
-.sec-dropdown-wrap {
-  position: relative;
-}
-
-.sec-dropdown {
-  position: absolute;
-  top: calc(100% + 10px);
-  right: 0;
-
-  background: #ffffff;
-  color: #111827;
-  min-width: 220px;
-  padding: 12px;
-  border-radius: 12px;
-
-  box-shadow: 0 16px 32px rgba(0,0,0,0.25);
-  z-index: 100;
-}
-
-.sec-dropdown-item {
-  padding: 8px;
-  font-size: 13px;
-  border-radius: 6px;
-  cursor: pointer;
-  color: #374151;
-}
-
-.sec-dropdown-item:hover {
-  background: #f0f6ff;
-  color: #0284c7;
-}
-
-/* CTA */
-.sec-primary-btn {
-  width: 100%;
-  height: 36px;
-  margin-bottom: 10px;
-
-  background: linear-gradient(135deg, #0284c7, #0ea5e9);
-  border: none;
-  border-radius: 10px;
-
-  color: #ffffff;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 900px) {
+  /* Navbar height & padding */
   .sec-navbar {
+    height: 56px;
+  }
+
+  .sec-container {
+    padding: 10px 14px;
+  }
+
+  /* Brand slightly smaller */
+  .sec-brand {
+    font-size: 1.3rem;
+  }
+
+  /* Right icons compact */
+  .sec-right {
+    gap: 8px;
+  }
+
+  /* Hide text labels, keep icons */
+  .sec-icon-btn span {
     display: none;
+  }
+
+  .sec-icon-btn {
+    padding: 8px;
+    min-width: 40px;
+    justify-content: center;
+  }
+
+  .sec-icon-btn svg {
+    font-size: 1.1rem;
+  }
+
+  /* Dropdown full-width & touch-friendly */
+  .sec-dropdown {
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    top: 64px;
+    min-width: unset;
+    border-radius: 16px;
+    z-index: 2000;
+  }
+
+  .sec-dropdown-item {
+    padding: 14px 16px;
+    font-size: 15px;
+  }
+
+  .sec-primary-btn {
+    font-size: 15px;
+    padding: 12px;
+  }
+}
+
+
+
+
+/* -----------------secondary navbar dropdown menu-------------------- */
+
+
+/* =====================================================
+   THREE DOT MOBILE MENU
+===================================================== */
+
+.mobile-only {
+  display: none;
+}
+
+.desktop-only {
+  display: flex;
+  gap: 14px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+
+  .mobile-only .sec-dropdown {
+    position: fixed;
+    right: 12px;
+    top: 64px;
+    left: auto;
+    min-width: 220px;
+    border-radius: 16px;
+    z-index: 3000;
+  }
+
+  /* Menu items spacing */
+  .mobile-only .sec-icon-btn {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 12px 14px;
+  }
+
+  .mobile-only .sec-icon-btn span {
+    display: inline;
   }
 }

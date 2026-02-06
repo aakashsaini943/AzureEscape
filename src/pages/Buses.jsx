@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import {
   FaBus,
   FaMapMarkerAlt,
@@ -7,122 +6,124 @@ import {
   FaSearch,
 } from "react-icons/fa";
 
-const features = [
-  {
-    icon: FaChair,
-    title: "Comfortable Seating",
-    desc: "Choose from sleeper, semi-sleeper, or seater buses.",
-  },
-  {
-    icon: FaCalendarAlt,
-    title: "Flexible Travel Dates",
-    desc: "Check availability across multiple days with ease.",
-  },
-  {
-    icon: FaMapMarkerAlt,
-    title: "Wide Route Coverage",
-    desc: "Travel across cities with reliable bus operators.",
-  },
-];
-
-const Buses = () => {
-  const [show, setShow] = useState(false);
-
-  useEffect(() => {
-    setShow(true);
-  }, []);
-
+export default function Buses() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white to-orange-50 py-20 px-4">
-      {/* Ambient background */}
-      <div className="absolute -top-40 left-1/2 -translate-x-1/2 h-[520px] w-[520px] rounded-full bg-orange-200/40 blur-3xl" />
-      <div className="absolute bottom-0 -left-32 h-[420px] w-[420px] rounded-full bg-amber-200/40 blur-3xl" />
+    <div className="bg-white text-gray-900">
+      {/* ================= HERO BANNER ================= */}
+      <section className="relative bg-gradient-to-r from-orange-500 to-amber-500 text-white">
+        <div className="max-w-7xl mx-auto px-4 py-32">
+          <p className="text-sm font-semibold tracking-wider">
+            BUS BOOKINGS PLATFORM
+          </p>
 
-      <div className="relative max-w-6xl mx-auto">
-        {/* HERO */}
-        <div
-          className={`max-w-3xl mx-auto text-center transition-all duration-700 ${
-            show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
-        >
-          <span className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-orange-400 to-amber-400 px-4 py-1 text-xs font-semibold text-orange-900 shadow">
-            <FaBus /> BUS BOOKINGS
-          </span>
-
-          <h1 className="mt-6 text-4xl sm:text-5xl font-extrabold text-gray-900">
-            Book Buses,
-            <span className="block bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">
-              Travel Comfortably
-            </span>
+          <h1 className="mt-4 text-4xl sm:text-6xl font-extrabold max-w-3xl">
+            Comfortable Bus Travel Across India
           </h1>
 
-          <p className="mt-5 text-gray-600 text-base sm:text-lg leading-relaxed">
-            Compare prices, check amenities, and book bus tickets for your
-            intercity travel with ease.
+          <p className="mt-6 text-lg max-w-2xl text-orange-100">
+            Find buses, compare prices, choose seats and book tickets instantly
+            with trusted operators.
           </p>
         </div>
 
-        {/* SEARCH CARD */}
-        <div
-          className={`mt-14 mx-auto max-w-4xl rounded-3xl bg-white/80 backdrop-blur-xl border border-orange-200 shadow-xl p-6 sm:p-8 transition-all duration-700 ${
-            show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
-        >
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            <input
-              placeholder="From City"
-              className="w-full rounded-xl border border-orange-200 px-4 py-3 text-sm focus:border-orange-400 focus:outline-none"
-            />
-            <input
-              placeholder="To City"
-              className="w-full rounded-xl border border-orange-200 px-4 py-3 text-sm focus:border-orange-400 focus:outline-none"
-            />
-            <input
-              type="date"
-              className="w-full rounded-xl border border-orange-200 px-4 py-3 text-sm focus:border-orange-400 focus:outline-none"
-            />
-            <button className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-2xl">
-              <FaSearch /> Search Buses
-            </button>
+        {/* Decorative curve */}
+        <div className="absolute bottom-0 left-0 w-full h-24 bg-white rounded-t-[60px]" />
+      </section>
+
+      {/* ================= SEARCH STRIP ================= */}
+      <section className="relative z-10 -mt-12">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="bg-white shadow-xl rounded-2xl p-6">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="flex items-center gap-3 border rounded-xl px-4 py-3">
+                <FaMapMarkerAlt className="text-orange-500" />
+                <input
+                  placeholder="From City"
+                  className="w-full outline-none text-sm"
+                />
+              </div>
+
+              <div className="flex items-center gap-3 border rounded-xl px-4 py-3">
+                <FaMapMarkerAlt className="text-orange-500" />
+                <input
+                  placeholder="To City"
+                  className="w-full outline-none text-sm"
+                />
+              </div>
+
+              <div className="flex items-center gap-3 border rounded-xl px-4 py-3">
+                <FaCalendarAlt className="text-orange-500" />
+                <input
+                  type="date"
+                  className="w-full outline-none text-sm"
+                />
+              </div>
+
+              <button className="bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-xl font-semibold flex items-center justify-center gap-2 shadow-lg hover:opacity-90">
+                <FaSearch /> Search Buses
+              </button>
+            </div>
           </div>
         </div>
+      </section>
 
-        {/* FEATURES */}
-        <div className="mt-20 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map((item, i) => {
-            const Icon = item.icon;
-            return (
-              <div
-                key={i}
-                className={`group relative rounded-3xl bg-white p-6 border border-orange-200 shadow-md transition-all duration-500 hover:-translate-y-2 hover:shadow-xl ${
-                  show
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-8"
-                }`}
-                style={{ transitionDelay: `${i * 120}ms` }}
-              >
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-orange-200/30 to-amber-200/30 opacity-0 blur-xl transition group-hover:opacity-100" />
+      {/* ================= FEATURES ================= */}
+      <section className="max-w-7xl mx-auto px-4 py-28">
+        <h2 className="text-3xl font-extrabold mb-16">
+          Why Book Buses With Us
+        </h2>
 
-                <div className="relative">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-orange-400 to-amber-400 text-white shadow">
-                    <Icon />
-                  </div>
-
-                  <h3 className="mt-4 text-lg font-bold text-gray-900">
-                    {item.title}
-                  </h3>
-
-                  <p className="mt-2 text-sm text-gray-600 leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
+        <div className="space-y-10 max-w-3xl">
+          <Feature
+            icon={<FaChair />}
+            title="Comfortable Seating"
+            desc="Choose from sleeper, semi-sleeper, or seater buses with verified amenities."
+          />
+          <Feature
+            icon={<FaCalendarAlt />}
+            title="Flexible Travel Dates"
+            desc="View availability and pricing across multiple dates easily."
+          />
+          <Feature
+            icon={<FaMapMarkerAlt />}
+            title="Wide Route Coverage"
+            desc="Travel confidently across hundreds of cities with trusted operators."
+          />
         </div>
-      </div>
-    </section>
-  );
-};
+      </section>
 
-export default Buses;
+      {/* ================= FOOT STATS ================= */}
+      <section className="bg-orange-50 py-20">
+        <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+          <Stat number="10M+" label="Happy Travelers" />
+          <Stat number="500+" label="Cities Covered" />
+          <Stat number="2K+" label="Bus Operators" />
+          <Stat number="4.7★" label="User Rating" />
+        </div>
+      </section>
+    </div>
+  );
+}
+
+/* ================= SUB COMPONENTS ================= */
+
+function Feature({ icon, title, desc }) {
+  return (
+    <div className="flex gap-6 border-l-4 border-orange-500 pl-6">
+      <div className="text-orange-500 text-2xl mt-1">{icon}</div>
+      <div>
+        <h3 className="text-lg font-bold">{title}</h3>
+        <p className="mt-2 text-gray-600">{desc}</p>
+      </div>
+    </div>
+  );
+}
+
+function Stat({ number, label }) {
+  return (
+    <div className="bg-white rounded-2xl p-6 shadow-md">
+      <p className="text-3xl font-extrabold text-orange-500">{number}</p>
+      <p className="mt-2 text-sm text-gray-600">{label}</p>
+    </div>
+  );
+}

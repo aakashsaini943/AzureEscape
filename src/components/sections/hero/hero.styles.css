@@ -348,3 +348,91 @@
     border-radius: 14px;
   }
 }
+
+
+
+/* =====================================================
+   SAFE MOBILE-FIRST UPGRADES (NON-DESTRUCTIVE)
+   Paste at END of CSS
+===================================================== */
+
+/* Improve touch spacing on mobile */
+@media (max-width: 768px) {
+
+  .fs-wrapper {
+    margin: 0 12px;
+  }
+
+  .fs-block {
+    min-height: 78px;
+  }
+
+  .fs-block small {
+    font-size: 12px;
+  }
+
+  .fs-block h2 {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+
+  .fs-block p {
+    font-size: 11px;
+  }
+
+  /* Better inputs touch */
+  .fs-block input,
+  .fs-block select {
+    pointer-events: auto;
+  }
+
+  /* Safer dropdown overlay */
+  .dropdown {
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    top: 120px;
+    max-height: 65vh;
+    border-radius: 16px;
+  }
+
+  /* Swap button usability */
+  .swap-btn {
+    font-size: 22px;
+    touch-action: manipulation;
+  }
+
+  /* CTA comfort */
+  .search-btn {
+    height: 54px;
+    font-size: 16px;
+  }
+}
+
+/* Tablet polish */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .fs-card {
+    gap: 0;
+  }
+
+  .fs-block {
+    padding: 18px;
+  }
+}
+
+/* Desktop micro-polish */
+@media (min-width: 1025px) {
+
+  .fs-card {
+    transition: box-shadow 0.25s ease;
+  }
+
+  .fs-card:hover {
+    box-shadow: 0 28px 70px rgba(0,0,0,0.35);
+  }
+
+  .swap-btn:hover {
+    transform: rotate(180deg) scale(1.1);
+  }
+}

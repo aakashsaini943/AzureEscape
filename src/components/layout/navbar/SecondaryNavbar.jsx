@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { FaEllipsisV } from "react-icons/fa";
+
 import {
   FaHeart,
   FaUserCircle,
@@ -36,66 +38,100 @@ const SecondaryNavbar = () => {
 
         {/* LEFT */}
         <div className="sec-left">
-          <span className="sec-brand">AzureEscape</span>
+          <span className="sec-brand" onClick={() => navigate("/")}>
+  AzureEscape
+</span>
+
         </div>
 
         {/* RIGHT */}
-        <div className="sec-right">
+        {/* RIGHT */}
+<div className="sec-right">
 
-          <IconItem icon={FaHeart} label="Wishlist" />
+  {/* LOGIN – ALWAYS VISIBLE */}
+  <Dropdown
+    label="Login"
+    icon={FaUserCircle}
+    open={open === "login"}
+    onToggle={() => toggle("login")}
+    primary
+  >
+    <button
+      type="button"
+      className="sec-primary-btn"
+      onClick={() => {
+        setOpen(null);
+        navigate("/login");
+      }}
+    >
+      Login
+    </button>
 
-          <IconItem icon={FaQuestionCircle} label="Help" />
+    <DropdownItem
+      text="Create new account"
+      onClick={() => {
+        setOpen(null);
+        navigate("/signup");
+      }}
+    />
+  </Dropdown>
 
-          <Dropdown
-            label="INR"
-            icon={FaMoneyBillWave}
-            open={open === "currency"}
-            onToggle={() => toggle("currency")}
-          >
-            <DropdownItem text="INR – Indian Rupee" />
-            <DropdownItem text="USD – US Dollar" />
-            <DropdownItem text="EUR – Euro" />
-          </Dropdown>
+  {/* THREE DOT MENU */}
+  <div className="sec-dropdown-wrap mobile-only">
+    <button
+      type="button"
+      className="sec-icon-btn"
+      onClick={() => toggle("more")}
+      aria-label="More options"
+    >
+      <FaEllipsisV />
+    </button>
 
-          <Dropdown
-            label="English"
-            icon={FaGlobe}
-            open={open === "lang"}
-            onToggle={() => toggle("lang")}
-          >
-            <DropdownItem text="English" />
-            <DropdownItem text="Hindi" />
-            <DropdownItem text="French" />
-          </Dropdown>
+    {open === "more" && (
+      <div className="sec-dropdown">
 
-          <Dropdown
-            label="Login / Sign Up"
-            icon={FaUserCircle}
-            open={open === "login"}
-            onToggle={() => toggle("login")}
-            primary
-          >
-            <button
-              type="button"
-              className="sec-primary-btn"
-              onClick={() => {
-                setOpen(null);
-                navigate("/login");            // ✅ WORKING
-              }}
-            >
-              Login
-            </button>
+        <IconItem icon={FaHeart} label="Wishlist" />
+        <IconItem icon={FaQuestionCircle} label="Help" />
 
-            <DropdownItem
-              text="Create new account"
-              onClick={() => {
-                setOpen(null);
-                navigate("/signup");
-              }}
-            />
-          </Dropdown>
+        <DropdownItem text="INR – Indian Rupee" />
+        <DropdownItem text="USD – US Dollar" />
 
-        </div>
+        <DropdownItem text="English" />
+        <DropdownItem text="Hindi" />
+
+      </div>
+    )}
+  </div>
+
+  {/* DESKTOP ITEMS (UNCHANGED) */}
+  <div className="desktop-only">
+    <IconItem icon={FaHeart} label="Wishlist" />
+    <IconItem icon={FaQuestionCircle} label="Help" />
+
+    <Dropdown
+      label="INR"
+      icon={FaMoneyBillWave}
+      open={open === "currency"}
+      onToggle={() => toggle("currency")}
+    >
+      <DropdownItem text="INR – Indian Rupee" />
+      <DropdownItem text="USD – US Dollar" />
+    </Dropdown>
+
+    <Dropdown
+      label="English"
+      icon={FaGlobe}
+      open={open === "lang"}
+      onToggle={() => toggle("lang")}
+    >
+      <DropdownItem text="English" />
+      <DropdownItem text="Hindi" />
+    </Dropdown>
+  </div>
+
+</div>
+
+   
       </div>
     </nav>
   );
