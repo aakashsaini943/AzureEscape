@@ -72,7 +72,7 @@ export default function FlightSearch() {
               checked={tripType === "MULTI"}
               onChange={() => setTripType("MULTI")}
             />
-            Multi City
+            Multi
           </label>
         </div>
 
