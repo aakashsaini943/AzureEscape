@@ -403,120 +403,27 @@
 }
 
 
-
-
-
 /* =====================================================
-   SAFE MOBILE RESPONSIVE UPGRADES
-   (APPEND ONLY – NO OVERWRITE)
+   HIDE SECONDARY NAV ITEMS ON MOBILE
+   (SAFE – NO JS CHANGE)
 ===================================================== */
 
 @media (max-width: 768px) {
 
-  /* Navbar height & padding */
-  .sec-navbar {
-    height: 56px;
-  }
-
-  .sec-container {
-    padding: 10px 14px;
-  }
-
-  /* Brand slightly smaller */
-  .sec-brand {
-    font-size: 1.3rem;
-  }
-
-  /* Right icons compact */
+  /* Hide right-side actions */
   .sec-right {
-    gap: 8px;
-  }
-
-  /* Hide text labels, keep icons */
-  .sec-icon-btn span {
     display: none;
   }
-
-  .sec-icon-btn {
-    padding: 8px;
-    min-width: 40px;
-    justify-content: center;
+  .sec-navbar {
+    display: none !important;
   }
 
-  .sec-icon-btn svg {
-    font-size: 1.1rem;
+  /* Optional: center brand on mobile */
+  .sec-left {
+    margin: 0 auto;
   }
 
-  /* Dropdown full-width & touch-friendly */
-  .sec-dropdown {
-    position: fixed;
-    left: 12px;
-    right: 12px;
-    top: 64px;
-    min-width: unset;
-    border-radius: 16px;
-    z-index: 2000;
-  }
-
-  .sec-dropdown-item {
-    padding: 14px 16px;
-    font-size: 15px;
-  }
-
-  .sec-primary-btn {
-    font-size: 15px;
-    padding: 12px;
-  }
-}
-
-
-
-
-/* -----------------secondary navbar dropdown menu-------------------- */
-
-
-/* =====================================================
-   THREE DOT MOBILE MENU
-===================================================== */
-
-.mobile-only {
-  display: none;
-}
-
-.desktop-only {
-  display: flex;
-  gap: 14px;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-
-  .desktop-only {
-    display: none;
-  }
-
-  .mobile-only {
-    display: block;
-  }
-
-  .mobile-only .sec-dropdown {
-    position: fixed;
-    right: 12px;
-    top: 64px;
-    left: auto;
-    min-width: 220px;
-    border-radius: 16px;
-    z-index: 3000;
-  }
-
-  /* Menu items spacing */
-  .mobile-only .sec-icon-btn {
-    width: 100%;
-    justify-content: flex-start;
-    padding: 12px 14px;
-  }
-
-  .mobile-only .sec-icon-btn span {
-    display: inline;
+  .sec-brand {
+    font-size: 1.4rem;
   }
 }
