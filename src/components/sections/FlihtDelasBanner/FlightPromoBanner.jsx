@@ -27,7 +27,7 @@ export default function FlightPromoBanner() {
         {/* IMAGE SIDE */}
         <div className="flight-image">
           <img
-            src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05"
+            src="/public/images/air-india.jpg"
             alt="Flight travel"
           />
         </div>

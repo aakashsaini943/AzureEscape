@@ -83,7 +83,7 @@ const AppDownloadCTA = () => {
               text-gray-400 text-sm
             "
           >
-            App Preview
+            <img className="w-full h-full rounded-3xl object-contain bg-black" src="/public/images/erik-eastman-4HG5hlhmZg8-unsplash.jpg" alt="" />
           </div>
         </div>
       </div>

@@ -2,17 +2,17 @@ const destinations = [
   {
     title: "Maldives",
     subtitle: "Overwater Villas",
-    image: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21",
+    image: "/public/images/chelsea-gates-0653_wY0nRc-unsplash.jpg",
   },
   {
     title: "Paris",
     subtitle: "Timeless Romance",
-    image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34",
+    image: "/public/images/diogo-fagundes-dbBKeN1s8GY-unsplash.jpg",
   },
   {
     title: "Santorini",
     subtitle: "Aegean Serenity",
-    image: "https://images.unsplash.com/photo-1505731132164-cca5fcbad5b3",
+    image: "/public/images/alberto-lora-xEG9zTZ8kog-unsplash.jpg",
   },
 ];
 

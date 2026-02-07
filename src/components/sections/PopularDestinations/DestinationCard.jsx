@@ -92,7 +92,7 @@ const DestinationCard = ({
               active:scale-95
             "
           >
-            View Packages
+            View 
           </button>
         </div>
       </div>

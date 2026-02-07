@@ -5,7 +5,7 @@ export const destinations = [
     region: "Europe",
     description: "Romantic streets, iconic landmarks, timeless charm.",
     image:
-      "https://images.unsplash.com/photo-1502602898657-3e91760cbb34",
+      "/public/images/ilnur-kalimullin-CB0Qrf8ib4I-unsplash.jpg",
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ export const destinations = [
     region: "Asia",
     description: "Tropical paradise with rich culture and beaches.",
     image:
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+      "/public/images/christopher-alvarenga-IibRZfGCM10-unsplash.jpg",
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ export const destinations = [
     region: "Middle East",
     description: "Luxury, skyline views, and desert adventures.",
     image:
-      "https://images.unsplash.com/photo-1528701800489-20be3c1ea9b6",
+      "/public/images/ryan-miglinczy-02n9_v-d1yY-unsplash.jpg",
   },
   {
     id: 4,
@@ -29,6 +29,6 @@ export const destinations = [
     region: "Asia",
     description: "Where tradition meets futuristic city life.",
     image:
-      "https://images.unsplash.com/photo-1549693578-d683be217e58",
+      "/public/images/erik-eastman-4HG5hlhmZg8-unsplash.jpg",
   },
 ];
