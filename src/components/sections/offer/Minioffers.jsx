@@ -10,7 +10,7 @@ const themes = [
   },
   {
     title: "LUXE HOLIDAYS",
-    image: "/public/images/clay-banks-XFEJPXUqbYc-unsplash.jpg",
+    image: "/images/clay-banks-XFEJPXUqbYc-unsplash.jpg",
     tags: ["Beach", "Cultural", "Island", "Hill"],
   },
   {

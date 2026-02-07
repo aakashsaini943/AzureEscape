@@ -9,7 +9,7 @@ export const packages = [
     description:
       "Walk through the sacred land of Lord Krishna, visit ancient temples, and feel pure devotion.",
     image:
-      "/public/images/vrindavan.jpg",
+      "/images/vrindavan.jpg",
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ export const packages = [
     description:
       "Seek blessings at Mahakaleshwar Jyotirlinga and explore the holy ghats of Shipra River.",
     image:
-      "/public/images/ujjain.jpg",
+      "/images/ujjain.jpg",
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ export const packages = [
     description:
       "Embark on a divine journey to Kedarnath, surrounded by majestic Himalayas and spiritual peace.",
     image:
-      "/public/images/kedarnath.jpg",
+      "/images/kedarnath.jpg",
   },
   {
     id: 4,
@@ -45,6 +45,6 @@ export const packages = [
     description:
       "Experience Ganga Aarti, ancient temples, and the timeless spiritual aura of Kashi.",
     image:
-      "/public/images/varansi.jpg",
+      "/images/varansi.jpg",
   },
 ];
