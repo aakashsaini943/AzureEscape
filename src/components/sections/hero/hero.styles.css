@@ -1,478 +1,237 @@
-/* =====================================================
-   GLOBAL
-===================================================== */
-* {
-  box-sizing: border-box;
-  font-family: Inter, system-ui, -apple-system, Arial, sans-serif;
+/* ROOT */
+.split-hero {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #1b2b34, #050b14);
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* EXACT 50% - 50% */
+  align-items: center;
+  padding: 0 6vw;
+  gap: 0; /* no stealing space */
 }
 
-/* =====================================================
-   HERO SECTION
-===================================================== */
-.mmt-hero {
-  position: relative;
-  min-height: 100vh;
 
-  /* Desktop navbar space */
-  padding-top: 80px;
+/* LEFT SIDE */
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 4vw;
+  color: white;
+  max-width: 520px;
+}
 
+
+.hero-tag {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.75rem;
+  color: #38bdf8;
+}
+
+.hero-title {
+  font-size: clamp(3rem, 4.5vw, 4.5rem);
+  line-height: 1.1;
+  margin: 20px 0;
+}
+
+.hero-desc {
+  font-size: 1.05rem;
+  color: #cbd5e1;
+  margin-bottom: 30px;
+}
+
+.hero-btn {
+  background: #38bdf8;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #001018;
+  box-shadow: 0 18px 40px rgba(56,189,248,0.45);
+}
+
+/* RIGHT SIDE */
+.hero-right {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-
-  background:
-    radial-gradient(
-      1200px circle at top center,
-      #e6f3ff 0%,
-      #f5faff 40%,
-      transparent 70%
-    ),
-    linear-gradient(
-      180deg,
-      #ffffff 0%,
-      #f8fbff 45%,
-      #eef6ff 100%
-    );
-}
-
-
-
-/* Overlay */
-.mmt-hero-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-}
-
-/* =====================================================
-   HERO CONTENT
-===================================================== */
-.mmt-hero-content {
-  position: relative;
-  z-index: 2;
-
-  width: 100%;
-  max-width: 1200px;
-
-  padding: 56px 16px 40px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-/* =====================================================
-   FLIGHT SEARCH WRAPPER
-===================================================== */
-.fs-wrapper {
-  background: #ffffff;
-  border-radius: 28px;
-  padding: 26px 28px 30px;
-
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
-}
-
-/* =====================================================
-   HEADER (TRIP TYPE + TITLE)
-===================================================== */
-.fs-header {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-
-  margin-bottom: 18px;
-  gap: 16px;
-  flex-wrap: wrap;
+  perspective: 1400px;
 }
 
-.fs-trip label {
-  margin-right: 18px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #111827;
-  cursor: pointer;
-}
 
-.fs-trip input {
-  margin-right: 6px;
-  accent-color: #008cff;
-}
-
-.fs-title {
-  font-size: 13px;
-  font-weight: 500;
-  color: #374151;
-}
-
-/* =====================================================
-   SEARCH CARD GRID (DESKTOP)
-===================================================== */
-.fs-card {
-  background: #ffffff;
-  display: grid;
-  grid-template-columns:
-    1.4fr
-    40px
-    1.4fr
-    1fr
-    1fr
-    1.3fr;
-
-  border-radius: 18px;
-  overflow: hidden;
-  border: 1px solid #e5e7eb;
-}
-
-/* =====================================================
-   BLOCK
-===================================================== */
-.fs-block {
-  padding: 16px;
-  border-right: 1px solid #e5e7eb;
+/* CARD WRAPPER */
+.card-wrapper {
   position: relative;
-  cursor: pointer;
+  width: 100%;
+  max-width: 1000px;
+  height: 420px;
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out;
 }
 
-.fs-block:last-child {
-  border-right: none;
+
+/* BASE CARD */
+.card {
+  position: absolute;
+  width: 240px;
+  height: 360px;
+  border-radius: 18px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 28px 70px rgba(0,0,0,0.55);
+  filter: brightness(0.92);
+  overflow: hidden;
 }
 
-.fs-block small {
-  font-size: 11px;
-  font-weight: 600;
-  color: #6b7280;
-}
-
-.fs-block h2 {
-  margin: 6px 0;
-  font-size: 22px;
-  font-weight: 700;
-  color: #111827;
-}
-
-.fs-block p {
-  font-size: 12px;
-  color: #374151;
-}
-
-/* Native inputs hidden */
-.fs-block input,
-.fs-block select {
+/* GRADIENT OVERLAY FOR TEXT */
+.card::after {
+  content: "";
   position: absolute;
   inset: 0;
-  opacity: 0;
-  cursor: pointer;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.65),
+    rgba(0,0,0,0.15)
+  );
 }
 
-/* Disabled return */
-.fs-block.disabled {
-  opacity: 0.5;
-  pointer-events: none;
+/* CENTER CARD */
+.card-0 {
+  left: 50%;
+  transform: translateX(-50%) translateZ(150px);
+  z-index: 5;
+  filter: brightness(1);
 }
 
-/* Hint */
-.hint {
-  font-size: 11px;
-  color: #ff6d00;
-  font-weight: 600;
+
+/* LEFT SIDE */
+.card-1 {
+  left: 32%;
+  transform: translateX(-50%) rotateY(22deg) translateZ(80px);
+  z-index: 3;
 }
 
-/* =====================================================
-   SWAP BUTTON
-===================================================== */
-.swap-btn {
-  border: none;
-  background: #ffffff;
-  font-size: 20px;
-  cursor: pointer;
-  color: #008cff;
-  transition: transform 0.2s ease;
+.card-2 {
+  left: 14%;
+  transform: translateX(-50%) rotateY(35deg) translateZ(30px);
+  z-index: 2;
 }
 
-.swap-btn:hover {
-  transform: rotate(180deg);
+
+/* RIGHT SIDE */
+.card-3 {
+  left: 68%;
+  transform: translateX(-50%) rotateY(-22deg) translateZ(80px);
+  z-index: 3;
 }
 
-/* =====================================================
-   DROPDOWN
-===================================================== */
-.dropdown {
+.card-4 {
+  left: 86%;
+  transform: translateX(-50%) rotateY(-35deg) translateZ(30px);
+  z-index: 2;
+}
+
+
+/* HOVER – BRING CARD FORWARD */
+.card:hover {
+  transform: translateX(-50%) translateZ(200px) scale(1.05);
+  z-index: 10;
+  filter: brightness(1.1);
+}
+
+
+/* CARD TEXT */
+.card-text {
   position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-
-  background: #ffffff;
-  z-index: 20;
-
-  border-radius: 12px;
-  box-shadow: 0 16px 40px rgba(0,0,0,0.18);
-  overflow: hidden;
+  bottom: 18px;
+  left: 18px;
+  z-index: 2;
+  color: white;
 }
 
-.dropdown li {
-  padding: 12px 14px;
-  cursor: pointer;
+
+.card-text h2 {
+  font-size: 1.35rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
 }
 
-.dropdown li strong {
-  display: block;
-  font-size: 14px;
+.card-text span {
+  font-size: 0.8rem;
+  opacity: 0.85;
 }
 
-.dropdown li em {
-  font-size: 11px;
-  color: #6b7280;
-}
-
-.dropdown li:hover {
-  background: #f0f6ff;
-}
-
-/* =====================================================
-   SEARCH BUTTON
-===================================================== */
-.search-btn {
-  margin-top: 22px;
-  width: 100%;
-  padding: 15px;
-
-  background: linear-gradient(90deg, #53b2fe, #065af3);
-  border: none;
-  color: #ffffff;
-
-  font-size: 16px;
-  font-weight: 700;
-  border-radius: 12px;
-  cursor: pointer;
-
-  box-shadow: 0 12px 30px rgba(6, 90, 243, 0.45);
-}
-
-.search-btn:hover {
-  filter: brightness(1.05);
-}
-
-/* =====================================================
-   RESPONSIVE
-===================================================== */
-
-/* TABLET */
+/* RESPONSIVE */
 @media (max-width: 1024px) {
-  .fs-card {
-    grid-template-columns:
-      1fr
-      40px
-      1fr
-      1fr
-      1fr;
+  .card-wrapper {
+    transform: scale(0.85);
   }
 }
 
-/* MOBILE */
 @media (max-width: 768px) {
+  .card-wrapper {
+    transform: scale(0.75);
+  }
+}
 
-  /* Mobile navbar is overlay */
-  .mmt-hero {
-    padding-top: 0;
+
+
+@media (max-width: 1024px) {
+  .split-hero {
+    grid-template-columns: 1fr; /* stack */
+    padding-top: 100px;
+    text-align: center;
   }
 
-  .mmt-hero-content {
-    padding: 36px 12px;
+  .hero-left {
+    margin: 0 auto;
+    padding-right: 0;
   }
 
-  .fs-wrapper {
-    padding: 14px;
-    border-radius: 22px;
+  .hero-right {
+    margin-top: 60px;
   }
+}
 
-  /* STACKED CARD */
-  .fs-card {
+/* ===========================
+   SAFE MOBILE RESPONSIVENESS
+=========================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .split-hero {
     grid-template-columns: 1fr;
-    border-radius: 20px;
-    overflow: visible;
+    padding-top: 100px;
+    text-align: center;
   }
 
-  .fs-block {
-    padding: 14px 16px;
-    border-right: none;
-    border-bottom: 1px solid #e5e7eb;
-    min-height: 82px;
+  .hero-left {
+    margin: 0 auto;
+    padding-right: 0;
   }
 
-  .fs-block:last-child {
-    border-bottom: none;
+  .hero-right {
+    margin-top: 60px;
   }
 
-  .fs-block h2 {
-    font-size: 18px;
-  }
-
-  .fs-block p {
-    font-size: 11px;
-  }
-
-  /* Floating swap */
-  .mobile-swap {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 132px;
-
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-
-    background: #ffffff;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-    z-index: 5;
-  }
-
-  /* Dropdown overlay */
-  .dropdown {
-    position: fixed;
-    left: 16px;
-    right: 16px;
-    top: 140px;
-    max-height: 320px;
-    overflow-y: auto;
-    border-radius: 16px;
-    z-index: 9999;
-  }
-
-  /* CTA */
-  .search-btn {
-    margin-top: 18px;
-    height: 52px;
-    font-size: 16px;
-    border-radius: 14px;
+  .card-wrapper {
+    transform: scale(0.85);
   }
 }
 
-
-
-/* =====================================================
-   SAFE MOBILE-FIRST UPGRADES (NON-DESTRUCTIVE)
-   Paste at END of CSS
-===================================================== */
-
-/* Improve touch spacing on mobile */
+/* Mobile */
 @media (max-width: 768px) {
-
-  .fs-wrapper {
-    margin: 0 12px;
+  .card-wrapper {
+    transform: scale(0.7); /* scale only */
   }
 
-  .fs-block {
-    min-height: 78px;
+  .card-text h2 {
+    font-size: 1.1rem;
   }
 
-  .fs-block small {
-    font-size: 12px;
+  .card-text span {
+    font-size: 0.75rem;
   }
-
-  .fs-block h2 {
-    font-size: 18px;
-    line-height: 1.2;
-  }
-
-  .fs-block p {
-    font-size: 11px;
-  }
-
-  /* Better inputs touch */
-  .fs-block input,
-  .fs-block select {
-    pointer-events: auto;
-  }
-
-  /* Safer dropdown overlay */
-  .dropdown {
-    position: fixed;
-    left: 12px;
-    right: 12px;
-    top: 120px;
-    max-height: 65vh;
-    border-radius: 16px;
-  }
-
-  /* Swap button usability */
-  .swap-btn {
-    font-size: 22px;
-    touch-action: manipulation;
-  }
-
-  /* CTA comfort */
-  .search-btn {
-    height: 54px;
-    font-size: 16px;
-  }
-}
-
-/* Tablet polish */
-@media (min-width: 769px) and (max-width: 1024px) {
-
-  .fs-card {
-    gap: 0;
-  }
-
-  .fs-block {
-    padding: 18px;
-  }
-}
-
-/* Desktop micro-polish */
-@media (min-width: 1025px) {
-
-  .fs-card {
-    transition: box-shadow 0.25s ease;
-  }
-
-  .fs-card:hover {
-    box-shadow: 0 28px 70px rgba(0,0,0,0.35);
-  }
-
-  .swap-btn:hover {
-    transform: rotate(180deg) scale(1.1);
-  }
-}
-
-
-
-
-/* ================= MOBILE SHIFT UI ================= */
-
-.fs-mobile-card {
-  background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 14px 40px rgba(0,0,0,0.18);
-  overflow: hidden;
-  margin-bottom: 18px;
-}
-
-.fs-m-row {
-  padding: 16px;
-  border-bottom: 1px solid #e5e7eb;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  color: black;
-}
-
-.fs-m-row span {
-  font-size: 12px;
-  color: #0c0c0e;
-  font-weight: 600;
-}
-
-.fs-m-row strong {
-  font-size: 16px;
-  color: #111827;
-}
-
-.fs-m-row input,
-.fs-m-row select {
-  border: none;
-  background: transparent;
-  font-size: 15px;
 }
