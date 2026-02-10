@@ -235,3 +235,169 @@
     font-size: 0.75rem;
   }
 }
+
+
+
+/* ===========================
+   MOBILE HERO FIX (FINAL)
+=========================== */
+@media (max-width: 768px) {
+
+  /* Reduce hero height pressure */
+  .split-hero {
+    min-height: auto;          /* allow natural height */
+    padding: 80px 5vw 40px;    /* reduce top & bottom space */
+  }
+
+  /* Text block compact */
+  .hero-left {
+    padding-right: 0;
+    max-width: 100%;
+  }
+
+  .hero-tag {
+    font-size: 0.7rem;
+    margin-bottom: 10px;
+  }
+
+  .hero-title {
+    font-size: 2.4rem;        /* smaller heading */
+    line-height: 1.15;
+    margin: 14px 0;
+  }
+
+  .hero-desc {
+    font-size: 0.95rem;
+    margin-bottom: 22px;
+  }
+
+  /* Button spacing */
+  .hero-btn {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto 32px;
+  }
+
+  /* Cards come closer */
+  .hero-right {
+    margin-top: 20px;
+  }
+
+  /* Scale cards but keep visible */
+  .card-wrapper {
+    transform: scale(0.65);   /* slightly smaller */
+    transform-origin: top center;
+    height: 360px;            /* prevent cut */
+  }
+}
+
+
+
+/* ===========================
+   MOBILE AUTO FLIP CARDS
+=========================== */
+@media (max-width: 768px) {
+
+  /* Disable hover on mobile */
+  .card:hover {
+    transform: none;
+    filter: brightness(1);
+  }
+
+  /* Base animation setup */
+  .card {
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
+
+  /* Each card gets its own delay */
+  .card-0 {
+    animation-name: mobileFlip0;
+  }
+
+  .card-1 {
+    animation-name: mobileFlip1;
+  }
+
+  .card-2 {
+    animation-name: mobileFlip2;
+  }
+
+  .card-3 {
+    animation-name: mobileFlip3;
+  }
+
+  .card-4 {
+    animation-name: mobileFlip4;
+  }
+
+  /* FRONT CARD */
+  @keyframes mobileFlip0 {
+    0%, 20% {
+      transform: translateX(-50%) translateZ(160px) scale(1);
+      opacity: 1;
+    }
+    25%, 100% {
+      transform: translateX(-50%) translateZ(40px) scale(0.85);
+      opacity: 0.4;
+    }
+  }
+
+  @keyframes mobileFlip1 {
+    0%, 20% {
+      transform: translateX(-50%) translateZ(40px) scale(0.85);
+      opacity: 0.4;
+    }
+    25%, 45% {
+      transform: translateX(-50%) translateZ(160px) scale(1);
+      opacity: 1;
+    }
+    50%, 100% {
+      transform: translateX(-50%) translateZ(40px) scale(0.85);
+      opacity: 0.4;
+    }
+  }
+
+  @keyframes mobileFlip2 {
+    0%, 45% {
+      transform: translateX(-50%) translateZ(40px) scale(0.85);
+      opacity: 0.4;
+    }
+    50%, 70% {
+      transform: translateX(-50%) translateZ(160px) scale(1);
+      opacity: 1;
+    }
+    75%, 100% {
+      transform: translateX(-50%) translateZ(40px) scale(0.85);
+      opacity: 0.4;
+    }
+  }
+
+  @keyframes mobileFlip3 {
+    0%, 70% {
+      transform: translateX(-50%) translateZ(40px) scale(0.85);
+      opacity: 0.4;
+    }
+    75%, 90% {
+      transform: translateX(-50%) translateZ(160px) scale(1);
+      opacity: 1;
+    }
+    95%, 100% {
+      transform: translateX(-50%) translateZ(40px) scale(0.85);
+      opacity: 0.4;
+    }
+  }
+
+  @keyframes mobileFlip4 {
+    0%, 90% {
+      transform: translateX(-50%) translateZ(40px) scale(0.85);
+      opacity: 0.4;
+    }
+    95%, 100% {
+      transform: translateX(-50%) translateZ(160px) scale(1);
+      opacity: 1;
+    }
+  }
+}
+
