@@ -42,6 +42,7 @@
 
 .hero-btn {
   background: #38bdf8;
+  max-width: 300px;
   border: none;
   padding: 14px 32px;
   border-radius: 30px;
@@ -75,8 +76,8 @@
 /* BASE CARD */
 .card {
   position: absolute;
-  width: 240px;
-  height: 360px;
+  width: 200px;
+  height: 320px;
   border-radius: 18px;
   background-size: cover;
   background-position: center;
@@ -301,12 +302,12 @@
   /* Disable hover on mobile */
   .card:hover {
     transform: none;
-    filter: brightness(1);
+    filter: brightness(70);
   }
 
   /* Base animation setup */
   .card {
-    animation-duration: 10s;
+    animation-duration: 6s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
   }

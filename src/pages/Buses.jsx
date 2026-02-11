@@ -9,121 +9,138 @@ import {
 export default function Buses() {
   return (
     <div className="bg-white text-gray-900">
-      {/* ================= HERO BANNER ================= */}
-      <section className="relative bg-gradient-to-r from-orange-500 to-amber-500 text-white">
-        <div className="max-w-7xl mx-auto px-4 py-32">
-          <p className="text-sm font-semibold tracking-wider">
-            BUS BOOKINGS PLATFORM
-          </p>
 
-          <h1 className="mt-4 text-4xl sm:text-6xl font-extrabold max-w-3xl">
-            Comfortable Bus Travel Across India
-          </h1>
+      {/* ================= HERO ================= */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-orange-500 via-amber-500 to-yellow-400 text-white">
+        <div className="max-w-7xl mx-auto px-4 py-24 sm:py-32">
 
-          <p className="mt-6 text-lg max-w-2xl text-orange-100">
-            Find buses, compare prices, choose seats and book tickets instantly
-            with trusted operators.
-          </p>
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold tracking-widest text-orange-100">
+              BUS BOOKINGS PLATFORM
+            </p>
+
+            <h1 className="mt-4 text-4xl sm:text-6xl font-extrabold leading-tight">
+              Comfortable Bus Travel <br />
+              <span className="text-yellow-100">
+                Across India
+              </span>
+            </h1>
+
+            <p className="mt-6 text-lg text-orange-100 leading-relaxed">
+              Find buses, compare ticket prices, choose seats, and book your
+              journey instantly with verified operators.
+            </p>
+          </div>
         </div>
 
-        {/* Decorative curve */}
-        <div className="absolute bottom-0 left-0 w-full h-24 bg-white rounded-t-[60px]" />
+        {/* Decorative blurred glow */}
+        <div className="absolute -top-24 -right-24 w-72 h-72 bg-yellow-300/30 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-full h-20 bg-white rounded-t-[50px]" />
       </section>
 
-      {/* ================= SEARCH STRIP ================= */}
-      <section className="relative z-10 -mt-12">
+      {/* ================= SEARCH CARD ================= */}
+      <section className="relative z-10 -mt-10 sm:-mt-16">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="bg-white shadow-xl rounded-2xl p-6">
+          <div className="rounded-3xl bg-white/90 backdrop-blur-xl shadow-2xl border border-orange-100 p-5 sm:p-8">
+
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              <div className="flex items-center gap-3 border rounded-xl px-4 py-3">
-                <FaMapMarkerAlt className="text-orange-500" />
-                <input
-                  placeholder="From City"
-                  className="w-full outline-none text-sm"
-                />
-              </div>
 
-              <div className="flex items-center gap-3 border rounded-xl px-4 py-3">
-                <FaMapMarkerAlt className="text-orange-500" />
-                <input
-                  placeholder="To City"
-                  className="w-full outline-none text-sm"
-                />
-              </div>
+              <InputField icon={<FaMapMarkerAlt />} placeholder="From City" />
+              <InputField icon={<FaMapMarkerAlt />} placeholder="To City" />
+              <InputField icon={<FaCalendarAlt />} type="date" />
 
-              <div className="flex items-center gap-3 border rounded-xl px-4 py-3">
-                <FaCalendarAlt className="text-orange-500" />
-                <input
-                  type="date"
-                  className="w-full outline-none text-sm"
-                />
-              </div>
-
-              <button className="bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-xl font-semibold flex items-center justify-center gap-2 shadow-lg hover:opacity-90">
-                <FaSearch /> Search Buses
+              <button className="h-[52px] rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 text-white font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
+                <FaSearch />
+                Search Buses
               </button>
+
             </div>
           </div>
         </div>
       </section>
 
       {/* ================= FEATURES ================= */}
-      <section className="max-w-7xl mx-auto px-4 py-28">
-        <h2 className="text-3xl font-extrabold mb-16">
+      <section className="max-w-7xl mx-auto px-4 py-20 sm:py-28">
+        <h2 className="text-3xl font-extrabold text-center mb-14">
           Why Book Buses With Us
         </h2>
 
-        <div className="space-y-10 max-w-3xl">
-          <Feature
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+          <FeatureCard
             icon={<FaChair />}
             title="Comfortable Seating"
             desc="Choose from sleeper, semi-sleeper, or seater buses with verified amenities."
           />
-          <Feature
+
+          <FeatureCard
             icon={<FaCalendarAlt />}
             title="Flexible Travel Dates"
-            desc="View availability and pricing across multiple dates easily."
+            desc="View availability and pricing across multiple dates with ease."
           />
-          <Feature
-            icon={<FaMapMarkerAlt />}
-            title="Wide Route Coverage"
-            desc="Travel confidently across hundreds of cities with trusted operators."
+
+          <FeatureCard
+            icon={<FaBus />}
+            title="Trusted Operators"
+            desc="Travel confidently with India’s top-rated and verified bus partners."
           />
         </div>
       </section>
 
-      {/* ================= FOOT STATS ================= */}
-      <section className="bg-orange-50 py-20">
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+      {/* ================= STATS ================= */}
+      <section className="bg-gradient-to-b from-orange-50 to-white py-16 sm:py-20">
+        <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+
           <Stat number="10M+" label="Happy Travelers" />
           <Stat number="500+" label="Cities Covered" />
           <Stat number="2K+" label="Bus Operators" />
           <Stat number="4.7★" label="User Rating" />
+
         </div>
       </section>
     </div>
   );
 }
 
-/* ================= SUB COMPONENTS ================= */
+/* ================= INPUT FIELD ================= */
 
-function Feature({ icon, title, desc }) {
+function InputField({ icon, placeholder, type = "text" }) {
   return (
-    <div className="flex gap-6 border-l-4 border-orange-500 pl-6">
-      <div className="text-orange-500 text-2xl mt-1">{icon}</div>
-      <div>
-        <h3 className="text-lg font-bold">{title}</h3>
-        <p className="mt-2 text-gray-600">{desc}</p>
-      </div>
+    <div className="flex items-center gap-3 border border-gray-200 rounded-xl px-4 h-[52px] bg-white hover:border-orange-300 transition">
+      <span className="text-orange-500 text-sm">{icon}</span>
+      <input
+        type={type}
+        placeholder={placeholder}
+        className="w-full text-sm outline-none"
+      />
     </div>
   );
 }
 
+/* ================= FEATURE CARD ================= */
+
+function FeatureCard({ icon, title, desc }) {
+  return (
+    <div className="group rounded-2xl border border-orange-100 bg-white p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-amber-500 text-white flex items-center justify-center text-lg shadow-md">
+        {icon}
+      </div>
+
+      <h3 className="mt-4 text-lg font-bold">{title}</h3>
+      <p className="mt-2 text-sm text-gray-600 leading-relaxed">{desc}</p>
+    </div>
+  );
+}
+
+/* ================= STAT ================= */
+
 function Stat({ number, label }) {
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-md">
-      <p className="text-3xl font-extrabold text-orange-500">{number}</p>
-      <p className="mt-2 text-sm text-gray-600">{label}</p>
+    <div className="bg-white rounded-2xl p-5 sm:p-6 text-center shadow-sm hover:shadow-md transition">
+      <p className="text-2xl sm:text-3xl font-extrabold text-orange-500">
+        {number}
+      </p>
+      <p className="mt-1 text-xs sm:text-sm text-gray-600">{label}</p>
     </div>
   );
 }

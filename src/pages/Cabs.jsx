@@ -71,15 +71,15 @@ const Cabs = () => {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <input
               placeholder="Pickup Location"
-              className="w-full rounded-xl border border-emerald-200 px-4 py-3 text-sm focus:border-emerald-400 focus:outline-none"
+              className="w-full rounded-xl border text-black/100 border-emerald-200 px-4 py-3 text-sm focus:border-emerald-400 focus:outline-none"
             />
             <input
               placeholder="Drop Location"
-              className="w-full rounded-xl border border-emerald-200 px-4 py-3 text-sm focus:border-emerald-400 focus:outline-none"
+              className="w-full rounded-xl border text-black/100 border-emerald-200 px-4 py-3 text-sm focus:border-emerald-400 focus:outline-none"
             />
             <input
               type="datetime-local"
-              className="w-full rounded-xl border border-emerald-200 px-4 py-3 text-sm focus:border-emerald-400 focus:outline-none"
+              className="w-full rounded-xl border text-black/100 border-emerald-200 px-4 py-3 text-sm focus:border-emerald-400 focus:outline-none"
             />
             <button className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-2xl">
               <FaSearch /> Search Cabs

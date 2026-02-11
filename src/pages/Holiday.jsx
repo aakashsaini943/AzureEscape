@@ -101,15 +101,15 @@ const Holidays = () => {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <input
               placeholder="Destination"
-              className="w-full rounded-xl border border-emerald-200 px-4 py-3 text-sm focus:border-emerald-400 focus:outline-none"
+              className="w-full rounded-xl border text-black/100 border-emerald-200 px-4 py-3 text-sm focus:border-emerald-400 focus:outline-none"
             />
-            <select className="w-full rounded-xl border border-emerald-200 px-4 py-3 text-sm focus:border-emerald-400 focus:outline-none">
+            <select className="w-full rounded-xl border text-black/100 border-emerald-200 px-4 py-3 text-sm focus:border-emerald-400 focus:outline-none">
               <option>Any Duration</option>
               <option>3–5 Days</option>
               <option>6–8 Days</option>
               <option>9+ Days</option>
             </select>
-            <select className="w-full rounded-xl border border-emerald-200 px-4 py-3 text-sm focus:border-emerald-400 focus:outline-none">
+            <select className="w-full rounded-xl border text-black/100 border-emerald-200 px-4 py-3 text-sm focus:border-emerald-400 focus:outline-none">
               <option>Any Budget</option>
               <option>Under ₹50k</option>
               <option>₹50k–₹1L</option>

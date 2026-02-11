@@ -71,13 +71,13 @@ const Homestays = () => {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <input
               placeholder="Destination"
-              className="w-full rounded-xl border border-rose-200 px-4 py-3 text-sm focus:border-rose-400 focus:outline-none"
+              className="w-full rounded-xl border text-black/100 border-rose-200 px-4 py-3 text-sm focus:border-rose-400 focus:outline-none"
             />
             <input
               type="date"
-              className="w-full rounded-xl border border-rose-200 px-4 py-3 text-sm focus:border-rose-400 focus:outline-none"
+              className="w-full rounded-xl border  text-black/100 border-rose-200 px-4 py-3 text-sm focus:border-rose-400 focus:outline-none"
             />
-            <select className="w-full rounded-xl border border-rose-200 px-4 py-3 text-sm focus:border-rose-400 focus:outline-none">
+            <select className="w-full rounded-xl border  text-black/100 border-rose-200 px-4 py-3 text-sm focus:border-rose-400 focus:outline-none">
               <option>2 Guests</option>
               <option>3 Guests</option>
               <option>4 Guests</option>

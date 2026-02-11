@@ -71,15 +71,15 @@ const Trains = () => {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <input
               placeholder="From Station"
-              className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-sky-400 focus:outline-none"
+              className="w-full rounded-xl border text-black/100 border-slate-200 px-4 py-3 text-sm focus:border-sky-400 focus:outline-none"
             />
             <input
               placeholder="To Station"
-              className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-sky-400 focus:outline-none"
+              className="w-full rounded-xl border text-black/100 border-slate-200 px-4 py-3 text-sm focus:border-sky-400 focus:outline-none"
             />
             <input
               type="date"
-              className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-sky-400 focus:outline-none"
+              className="w-full rounded-xl border text-black/100 border-slate-200 px-4 py-3 text-sm focus:border-sky-400 focus:outline-none"
             />
             <button className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-500 px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-2xl">
               <FaSearch /> Search Trains

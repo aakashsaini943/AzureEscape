@@ -10,7 +10,7 @@ const HotelsHero = () => {
         src="/images/hotels-hero.jpg"
         onError={(e) => {
           e.currentTarget.src =
-            "https://images.unsplash.com/photo-1501117716987-c8e1ecb210b0?auto=format&fit=crop&w=2400&q=80";
+            "/public/images/alexey-turenkov-bWJiSZjIgTM-unsplash.jpg";
         }}
         alt="Luxury resort hotel"
         className="absolute inset-0 h-full w-full object-cover"
