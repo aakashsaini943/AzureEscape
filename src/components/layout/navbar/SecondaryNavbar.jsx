@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+
 import {
   FaHeart,
   FaUserCircle,
@@ -10,6 +11,7 @@ import {
   FaChevronDown
 } from "react-icons/fa";
 import "./Navbar.style.css";
+import { path } from "motion/react-client";
 
 const SecondaryNavbar = () => {
   const navigate = useNavigate();              // ✅ FIXED
@@ -46,9 +48,18 @@ const SecondaryNavbar = () => {
         {/* RIGHT */}
         <div className="sec-right">
 
-          <IconItem icon={FaHeart} label="Wishlist" />
+       
+          <button onClick={() => navigate("/wishlist")}>
+               <IconItem icon={FaHeart} label="Wishlist" />
 
-          <IconItem icon={FaQuestionCircle} label="Help" />
+          </button>
+
+          <button onClick={() => navigate("/Help")}>
+  <IconItem icon={FaQuestionCircle} label="Help" />
+</button>
+
+          
+          
 
           <Dropdown
             label="INR"

@@ -9,7 +9,8 @@ import Buses from "../pages/Buses";
 import Cabs from "../pages/Cabs";
 import Visa from "../pages/Visa";
 import Login from "../pages/Login";
-
+import Help from "../pages/Help"
+import Wishlist from "../pages/Wishlist";
 
 const AppRoutes = () => {
   return (
@@ -26,6 +27,10 @@ const AppRoutes = () => {
       <Route path="/buses" element={<Buses />} />
       <Route path="/cabs" element={<Cabs />} />
       <Route path="/visa" element={<Visa/>} />
+      <Route path="/Help" element={<Help />}/>
+      <Route path="/Wishlist" element={<Wishlist/>}/>
+
+
     </Routes>
   );
 };
