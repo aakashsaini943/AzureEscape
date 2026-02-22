@@ -1,24 +1,22 @@
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
-
 import {
   FaHeart,
   FaUserCircle,
   FaGlobe,
   FaMoneyBillWave,
   FaQuestionCircle,
-  FaChevronDown
+  FaChevronDown,
+  FaBars,
+  FaTimes,
 } from "react-icons/fa";
-import "./Navbar.style.css";
-import { path } from "motion/react-client";
 
 const SecondaryNavbar = () => {
-  const navigate = useNavigate();              // ✅ FIXED
+  const navigate = useNavigate();
   const [open, setOpen] = useState(null);
+  const [mobileMenu, setMobileMenu] = useState(false);
   const ref = useRef(null);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const close = (e) => {
       if (ref.current && !ref.current.contains(e.target)) {
@@ -34,84 +32,138 @@ const SecondaryNavbar = () => {
   };
 
   return (
-    <nav className="sec-navbar" ref={ref}>
-      <div className="sec-container">
-
-        {/* LEFT */}
-        <div className="sec-left">
-          <span className="sec-brand" onClick={() => navigate("/")}>
-  AzureEscape
-</span>
-
-        </div>
-
-        {/* RIGHT */}
-        <div className="sec-right">
-
-       
-          <button onClick={() => navigate("/wishlist")}>
-               <IconItem icon={FaHeart} label="Wishlist" />
-
-          </button>
-
-          <button onClick={() => navigate("/Help")}>
-  <IconItem icon={FaQuestionCircle} label="Help" />
-</button>
-
-          
-          
-
-          <Dropdown
-            label="INR"
-            icon={FaMoneyBillWave}
-            open={open === "currency"}
-            onToggle={() => toggle("currency")}
-            
+    <nav
+      className="w-full bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50"
+      ref={ref}
+    >
+      <div className="max-w-7xl mx-auto px-4">
+        {/* TOP BAR */}
+        <div className="h-14 flex items-center justify-between">
+          <span
+            className="text-lg font-bold text-sky-600 cursor-pointer
+             animate-[float_3s_ease-in-out_infinite]"
+            onClick={() => navigate("/")}
           >
-            <DropdownItem text="INR – Indian Rupee" />
-            <DropdownItem text="USD – US Dollar" />
-            <DropdownItem text="EUR – Euro" />
-          </Dropdown>
+            AzureEscape
+          </span>
 
-          <Dropdown
-            label="English"
-            icon={FaGlobe}
-            open={open === "lang"}
-            onToggle={() => toggle("lang")}
-          >
-            <DropdownItem text="English" />
-            <DropdownItem text="Hindi" />
-            <DropdownItem text="French" />
-          </Dropdown>
-
-          <Dropdown
-            label="Login / Sign Up"
-            icon={FaUserCircle}
-            open={open === "login"}
-            onToggle={() => toggle("login")}
-            primary
-          >
-            <button
-              type="button"
-              className="sec-primary-btn"
-              onClick={() => {
-                setOpen(null);
-                navigate("/login");            // ✅ WORKING
-              }}
-            >
-              Login
-            </button>
-
-            <DropdownItem
-              text="Create new account"
-              onClick={() => {
-                setOpen(null);
-                navigate("/signup");
-              }}
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center gap-3">
+            <IconItem
+              icon={FaHeart}
+              label="Wishlist"
+              onClick={() => navigate("/wishlist")}
             />
-          </Dropdown>
+            <IconItem
+              icon={FaQuestionCircle}
+              label="Help"
+              onClick={() => navigate("/Help")}
+            />
 
+            <Dropdown
+              label="INR"
+              icon={FaMoneyBillWave}
+              open={open === "currency"}
+              onToggle={() => toggle("currency")}
+            >
+              <DropdownItem text="INR – Indian Rupee" />
+              <DropdownItem text="USD – US Dollar" />
+              <DropdownItem text="EUR – Euro" />
+            </Dropdown>
+
+            <Dropdown
+              label="English"
+              icon={FaGlobe}
+              open={open === "lang"}
+              onToggle={() => toggle("lang")}
+            >
+              <DropdownItem text="English" />
+              <DropdownItem text="Hindi" />
+              <DropdownItem text="French" />
+            </Dropdown>
+
+            <Dropdown
+              label="Login / Sign Up"
+              icon={FaUserCircle}
+              open={open === "login"}
+              onToggle={() => toggle("login")}
+              primary
+            >
+              <button
+                className="w-full text-left px-3 py-2 text-sm hover:bg-gray-100"
+                onClick={() => {
+                  setOpen(null);
+                  navigate("/login");
+                }}
+              >
+                Login
+              </button>
+
+              <DropdownItem
+                text="Create new account"
+                onClick={() => {
+                  setOpen(null);
+                  navigate("/signup");
+                }}
+              />
+            </Dropdown>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden text-gray-700 text-lg"
+            onClick={() => setMobileMenu(!mobileMenu)}
+          >
+            {mobileMenu ? <FaTimes /> : <FaBars />}
+          </button>
         </div>
+
+        {/* MOBILE PANEL */}
+        {mobileMenu && (
+          <div className="md:hidden pb-4 space-y-2">
+            <MobileItem
+              icon={FaHeart}
+              label="Wishlist"
+              onClick={() => navigate("/wishlist")}
+            />
+            <MobileItem
+              icon={FaQuestionCircle}
+              label="Help"
+              onClick={() => navigate("/Help")}
+            />
+
+            <Dropdown
+              label="Currency"
+              icon={FaMoneyBillWave}
+              open={open === "currency"}
+              onToggle={() => toggle("currency")}
+              mobile
+            >
+              <DropdownItem text="INR – Indian Rupee" />
+              <DropdownItem text="USD – US Dollar" />
+              <DropdownItem text="EUR – Euro" />
+            </Dropdown>
+
+            <Dropdown
+              label="Language"
+              icon={FaGlobe}
+              open={open === "lang"}
+              onToggle={() => toggle("lang")}
+              mobile
+            >
+              <DropdownItem text="English" />
+              <DropdownItem text="Hindi" />
+              <DropdownItem text="French" />
+            </Dropdown>
+
+            <button
+              className="w-full bg-sky-500 text-white py-2.5 rounded-lg text-sm font-medium"
+              onClick={() => navigate("/login")}
+            >
+              Login / Sign Up
+            </button>
+          </div>
+        )}
       </div>
     </nav>
   );
@@ -119,37 +171,64 @@ const SecondaryNavbar = () => {
 
 export default SecondaryNavbar;
 
-/* ---------- Small Components ---------- */
+/* ---------- Components ---------- */
 
-const IconItem = ({ icon: Icon, label }) => (
-  <button type="button" className="sec-icon-btn">
-    {Icon && <Icon />}
+const IconItem = ({ icon: Icon, label, onClick }) => (
+  <button
+    onClick={onClick}
+    className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 text-sm"
+  >
+    <Icon className="text-gray-600" />
     <span>{label}</span>
   </button>
 );
 
-const Dropdown = ({ icon: Icon, label, children, open, onToggle, primary }) => (
-  <div className="sec-dropdown-wrap">
+const MobileItem = ({ icon: Icon, label, onClick }) => (
+  <button
+    onClick={onClick}
+    className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-gray-100 text-sm"
+  >
+    <Icon className="text-gray-600" />
+    <span>{label}</span>
+  </button>
+);
+
+const Dropdown = ({
+  icon: Icon,
+  label,
+  children,
+  open,
+  onToggle,
+  primary,
+  mobile,
+}) => (
+  <div className="relative">
     <button
-      type="button"
-      className={`sec-icon-btn ${primary ? "primary" : ""}`}
       onClick={onToggle}
+      className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm
+                  hover:bg-gray-100 w-full ${primary ? "bg-sky-500 text-white hover:bg-sky-600" : ""}`}
     >
-      {Icon && <Icon />}
-      <span>{label}</span>
-      <FaChevronDown />
+      <Icon />
+      <span className="flex-1 text-left">{label}</span>
+      <FaChevronDown
+        className={`text-xs transition ${open ? "rotate-180" : ""}`}
+      />
     </button>
 
-    {open && <div className="sec-dropdown">{children}</div>}
+    {open && (
+      <div
+        className={`mt-1 bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden ${mobile ? "" : "absolute right-0 w-56"}`}
+      >
+        {children}
+      </div>
+    )}
   </div>
 );
 
 const DropdownItem = ({ text, onClick }) => (
   <p
-    className="sec-dropdown-item"
     onClick={onClick}
-    role="button"
-    tabIndex={0}
+    className="px-3 py-2 text-sm hover:bg-gray-100 cursor-pointer"
   >
     {text}
   </p>
