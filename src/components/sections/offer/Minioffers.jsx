@@ -4,23 +4,23 @@ import "./Minioffers.style.css";
 const themes = [
   {
     title: "Adventure",
-    image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470",
+    image: "/images/clay-banks-XFEJPXUqbYc-unsplash.jpg",
   },
   {
     title: "Luxury",
-    image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb",
+    image: "/images/kedarnath.jpg",
   },
   {
     title: "Beaches",
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+    image: "/images/alexey-turenkov-bWJiSZjIgTM-unsplash.jpg",
   },
   {
     title: "Culture",
-    image: "https://images.unsplash.com/photo-1524492449090-1eae3b7fcb0c",
+    image: "/images/chelsea-gates-0653_wY0nRc-unsplash.jpg",
   },
   {
     title: "Road Trips",
-    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+    image: "/images/ilnur-kalimullin-CB0Qrf8ib4I-unsplash.jpg",
   },
 ];
 
