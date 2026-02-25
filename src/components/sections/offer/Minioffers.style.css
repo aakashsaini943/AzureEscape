@@ -1,170 +1,105 @@
-.theme-section {
-  background: linear-gradient(135deg, #f9fafb, #eef2ff);
+.mosaic-section {
+  background: #f8fafc;
   padding: 90px 20px;
-  color: #0f172a;
 }
 
-/* FEATURED */
-.featured-theme {
-  max-width: 1200px;
-  margin: auto;
-  height: 360px;
-  border-radius: 28px;
-  background-image: url("https://images.unsplash.com/photo-1469854523086-cc02fe5d8800");
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  overflow: hidden;
+/* HEADER */
+.mosaic-header {
+  text-align: center;
   margin-bottom: 50px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
 
-.featured-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(255,255,255,0.9), rgba(255,255,255,0.2));
-  padding: 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 520px;
-  backdrop-filter: blur(6px);
-}
-
-.featured-overlay span {
+.mosaic-header span {
   font-size: 12px;
   letter-spacing: 2px;
   color: #2563eb;
   font-weight: 600;
 }
 
-.featured-overlay h2 {
+.mosaic-header h2 {
   font-size: 2.6rem;
   font-weight: 800;
-  margin: 10px 0;
   color: #020617;
+  margin: 10px 0;
 }
 
-.featured-overlay p {
-  color: #334155;
+.mosaic-header p {
+  color: #475569;
   font-size: 14px;
-  line-height: 1.6;
-  margin-bottom: 22px;
 }
 
-.featured-overlay button {
-  background: #2563eb;
-  border: none;
-  color: white;
-  padding: 12px 22px;
-  border-radius: 999px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.featured-overlay button:hover {
-  background: #1d4ed8;
-  transform: translateY(-2px);
-}
-
-/* CONTROLS */
-.theme-controls {
+/* GRID */
+.mosaic-grid {
   max-width: 1200px;
   margin: auto;
-  display: flex;
-  justify-content: flex-end;
-  gap: 12px;
-  margin-bottom: 18px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: 90px;
+  gap: 16px;
 }
 
-.theme-controls button {
-  height: 42px;
-  width: 42px;
-  border-radius: 50%;
-  border: none;
-  background: white;
-  color: #0f172a;
-  cursor: pointer;
-  font-size: 18px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-  transition: 0.3s;
-}
-
-.theme-controls button:hover {
-  background: #2563eb;
-  color: white;
-  transform: scale(1.05);
-}
-
-/* STRIPS */
-.theme-strips {
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  gap: 18px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding-bottom: 10px;
-}
-
-/* STRIP */
-.theme-strip {
-  min-width: 240px;
-  height: 150px;
-  border-radius: 20px;
-  background-size: cover;
-  background-position: center;
+/* ITEMS */
+.mosaic-item {
   position: relative;
+  border-radius: 22px;
   overflow: hidden;
   cursor: pointer;
   transition: 0.35s;
-  box-shadow: 0 12px 26px rgba(0,0,0,0.12);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
-.theme-strip:hover {
-  transform: translateY(-6px) scale(1.03);
+.mosaic-item:hover {
+  transform: translateY(-6px) scale(1.02);
+}
+
+/* BACKGROUND */
+.mosaic-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: 0.4s;
+}
+
+.mosaic-item:hover .mosaic-bg {
+  transform: scale(1.08);
 }
 
 /* OVERLAY */
-.strip-overlay {
+.mosaic-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.55), transparent);
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
   display: flex;
   align-items: flex-end;
   padding: 16px;
 }
 
-.strip-overlay h3 {
+.mosaic-overlay h3 {
+  color: white;
   font-size: 15px;
   font-weight: 700;
-  color: white;
 }
 
-/* Hide Scrollbar */
-.hide-scrollbar {
-  scrollbar-width: none;
-}
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;
-}
+/* TILE SIZES (Irregular layout) */
+.item-0 { grid-column: span 3; grid-row: span 3; }
+.item-1 { grid-column: span 3; grid-row: span 2; }
+.item-2 { grid-column: span 2; grid-row: span 2; }
+.item-3 { grid-column: span 2; grid-row: span 3; }
+.item-4 { grid-column: span 2; grid-row: span 2; }
 
 /* MOBILE */
 @media (max-width: 768px) {
-  .featured-theme {
-    height: 280px;
+  .mosaic-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 140px;
   }
 
-  .featured-overlay {
-    padding: 30px;
+  .mosaic-header h2 {
+    font-size: 2rem;
   }
 
-  .featured-overlay h2 {
-    font-size: 1.9rem;
-  }
-
-  .theme-controls {
-    justify-content: center;
+  .mosaic-overlay h3 {
+    font-size: 16px;
   }
 }
